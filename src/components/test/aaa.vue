@@ -80,6 +80,7 @@
         </a>
       </li>
     </ul>
+
   </div>
 </template>
 
@@ -88,9 +89,13 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+
     }
-  }
+  },
+methods:{
+
+}
 }
 </script>
 
@@ -110,4 +115,5 @@ li {
 a {
   color: #42b983;
 }
+
 </style>

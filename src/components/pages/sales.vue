@@ -61,6 +61,11 @@ ddd
         </tr>
         </tbody>
       </table>
+      <banks :bankList="banksList"></banks>
+      <p class="clearfix">
+      <el-button type="success">提交</el-button>
+      <el-button type="info">取消</el-button>
+      </p>
     </Popup>
   </el-row>
 </template>
@@ -72,6 +77,7 @@ ddd
   import ciycle from '@/components/common/base/ciycle'
   import Number from '@/components/common/base/counterNumber'
   import Popup from '@/components/common/Popup'
+  import banks from '@/components/common/BanksGroup'
   import axios from 'axios'
     export default{
       data(){
@@ -104,11 +110,19 @@ ddd
           {name:"中码",type:"base",value:"100"},
           {name:"大码",type:"middle",value:"200"},
           {name:"超大码",type:"difficult",value:"300"},
+        ],
+        banksList:[
+          {name:"中国银行",id:'101',href:"javascript:",className:"zhongguo"},
+          {name:"工商银行",id:'201',href:"javascript:",className:"gongshang"},
+          {name:"建设银行",id:'301',href:"javascript:",className:"jianshe"},
+          {name:"农业银行",id:'401',href:"javascript:",className:"nongye"},
+          {name:"广发银行",id:'501',href:"javascript:",className:"guangfa"},
+          {name:"兴业银行",id:'601',href:"javascript:",className:"xingye"}
         ]
       }
     },
   components:{
-    selection,radioSel,multiSel,ciycle,Number,Popup
+    selection,radioSel,multiSel,ciycle,Number,Popup,banks
   },
   methods:{
     tel(data){

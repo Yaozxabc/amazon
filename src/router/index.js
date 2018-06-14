@@ -7,6 +7,7 @@ import page01 from '@/components/pages/details/page01'
 import page02 from '@/components/pages/details/page02'
 import page03 from '@/components/pages/details/page03'
 import page04 from '@/components/pages/details/page04'
+import abc from '@/components/test/children'
 
 
 Vue.use(Router)
@@ -47,6 +48,11 @@ export default new Router({
       path:'/sales',
       name:'sales',
       component:sales
+    },
+    {
+      path:'/abc',
+      name:'abc',
+      component:abc
     }
   ]
 })
