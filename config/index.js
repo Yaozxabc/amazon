@@ -1,4 +1,4 @@
-'use strict'
+﻿'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
@@ -9,7 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     proxyTable: {
       '/api/': {
         target: 'http://localhost:8080/', //设置调用接口域名和端口号别忘了加http
