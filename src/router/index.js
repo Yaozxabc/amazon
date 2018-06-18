@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import index from '@/components/pages/index'
 import details from '@/components/pages/details'
 import sales from '@/components/pages/sales'
+import orderlist from '@/components/pages/orderlist'
 import page01 from '@/components/pages/details/page01'
 import page02 from '@/components/pages/details/page02'
 import page03 from '@/components/pages/details/page03'
@@ -53,6 +54,11 @@ export default new Router({
       path:'/abc',
       name:'abc',
       component:abc
+    },
+    {
+      path:'/orderlist',
+      name:"orderlist",
+      component:orderlist
     }
   ]
 })

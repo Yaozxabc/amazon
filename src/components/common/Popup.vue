@@ -55,7 +55,8 @@
     top: 20%;
     margin-left: -15%;
     width: 400px;
-    height: 280px;
+    min-height: 80px;
+    padding-top: 50px;
     border-radius: 5px;
     border: 2px solid orangered;
   }
@@ -67,6 +68,7 @@
     width: 40px;
     height: 40px;
     line-height: 40px;
+
    cursor: pointer;
   }
   .drop-enter-active{

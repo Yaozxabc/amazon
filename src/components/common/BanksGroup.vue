@@ -26,6 +26,7 @@
     methods:{
       tabShow(index){
         this.nowIndex=index;
+        this.$emit("on-change",this.bankList[index])
       }
     }
     }

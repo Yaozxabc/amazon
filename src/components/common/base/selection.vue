@@ -2,7 +2,7 @@
 <div>
   <div class="select_warp">
     <div class="curSel" @click="tabShow">{{selection[nowIndex].name}}</div>
-    <div class="sj"></div>
+    <div :class="[{sj_top:NYeah},{sj_bottom:Yeah}]"></div>
     <div v-if="expansion" class="selectList">
       <ul>
       <li v-for="(item,index) in selection" @click="showCur(index)">{{item.name}}</li>
@@ -27,6 +27,8 @@
       return{
         nowIndex:0,
         expansion:false,
+        Yeah:true,
+        NYeah:false
       }
     },
     computed:{
@@ -35,6 +37,8 @@
     methods:{
       tabShow(nowIndex){
         this.expansion=!this.expansion
+        this.Yeah=!this.Yeah;
+        this.NYeah=!this.NYeah;
       },
       showCur(index){
         this.nowIndex=index
@@ -76,10 +80,31 @@
     height: 16px;
     padding: 3px 0;
     font-size: 12px;
+    color: #000000;
+    background: #ffffff;
   }
   .selectList li:hover{
-
     color: white;
     background: darksalmon;
+  }
+  .sj_top{
+    position: absolute;
+    bottom: 10px;
+    right: 2px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 6px 6px 6px;
+    border-color: transparent transparent  #e0e0e0 transparent;
+  }
+  .sj_bottom{
+    position: absolute;
+    bottom: 10px;
+    right: 2px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #e0e0e0 transparent transparent transparent;
   }
 </style>

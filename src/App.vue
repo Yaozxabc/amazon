@@ -65,7 +65,7 @@
        </ul>
      </nav>
    </el-header>
-    <el-main  class="clearfix">
+    <el-main  class="clearfix main">
      <router-view></router-view>
     </el-main>
     <el-footer>
@@ -347,7 +347,9 @@ export default {
     font-size: 30px;
     color: #000000;
   }
-
+.main{
+  min-height: 400px;
+}
 
   .el-footer{
     padding-top: 20px;
@@ -401,7 +403,7 @@ export default {
   text-align: center;
   position: absolute;
   width: 100%;
-  top:140px;
+  top:20px;
   font-size: 24px;
   color: red;
 }

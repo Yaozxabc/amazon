@@ -61,12 +61,13 @@ ddd
         </tr>
         </tbody>
       </table>
-      <banks :bankList="banksList"></banks>
+      <banks :bankList="banksList" @on-change="toChooseBank"></banks>
       <p class="clearfix">
-      <el-button type="success">提交</el-button>
+      <el-button type="success" @click="isShowSure">提交</el-button>
       <el-button type="info">取消</el-button>
       </p>
     </Popup>
+    <showInfo :isaShow="isSure" @on-close="closeSure" @on-change="toDetail"></showInfo>
   </el-row>
 </template>
 
@@ -75,6 +76,7 @@ ddd
   import radioSel from '@/components/common/base/radioSel'
   import multiSel from '@/components/common/base/multiSel'
   import ciycle from '@/components/common/base/ciycle'
+  import showInfo from '@/components/common/base/ShowInfo'
   import Number from '@/components/common/base/counterNumber'
   import Popup from '@/components/common/Popup'
   import banks from '@/components/common/BanksGroup'
@@ -89,6 +91,7 @@ ddd
         buyCount:0,
 
         isPopup:false,
+        isSure:false,
 
 
         number:0,
@@ -118,11 +121,12 @@ ddd
           {name:"农业银行",id:'401',href:"javascript:",className:"nongye"},
           {name:"广发银行",id:'501',href:"javascript:",className:"guangfa"},
           {name:"兴业银行",id:'601',href:"javascript:",className:"xingye"}
-        ]
+        ],
+        orderId:"101"
       }
     },
   components:{
-    selection,radioSel,multiSel,ciycle,Number,Popup,banks
+    selection,radioSel,multiSel,ciycle,Number,Popup,banks,showInfo
   },
   methods:{
     tel(data){
@@ -151,25 +155,47 @@ ddd
         buyType:this.buyType.value,
         buyCount:this.buyCount,
         buyName:this.buyName.value,
-        buyList: buyArray.join(",")
+        buyList: buyArray.join(","),
+        orderId: this.orderId
         //将数组转化为字符串
       }
       //将需要的值赋值给参数对象
       axios.get("http://localhost:8080/static/abc.json",parms)
         .then((res)=>{
           this.price=res.data.price
+          console.log(parms)
+        }).catch((error)=>{
+          console.log(error)
         })
 
     },
     isShowPopup(){
-
       this.isPopup=true
-
     },
     noShowPopup(){
       this.isPopup=false
-    }
+    },
+    isShowSure(){
+      axios.get("http://localhost:8080/static/abc.json").then((res)=>{
+        console.log(res.data.name)
+      })
+      this.isPopup=false;
+      this.isSure=true;
 
+    },
+    noShowSure(){
+      this.isSure=false
+    },
+    toChooseBank(data){
+      this.orderId=data.id;
+      console.log(this.orderId)
+    },
+    closeSure(){
+      this.isSure=false;
+    },
+    toDetail(){
+      this.$router.push({path:'/orderlist'})
+    }
 
   },
   mounted:function(){
