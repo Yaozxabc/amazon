@@ -9,7 +9,6 @@
          <a href="javascript:" class="user_test"><span class="">免费试享prime</span></a>
          </el-col>
        <el-col :span="14" class="search">
-         <div class="cover">
          <div class="search_warp">
          <select name="" id="itemlist" class="itemlist">
            <option value="全部商品" selected>全部商品</option>
@@ -17,9 +16,10 @@
          <input type="text"/>
          <a href="javascrit:"><i class="iconfont icon-search"></i></a>
        </div>
-         </div>
        </el-col>
-       <el-col :span="6" class="search_bananer"></el-col>
+       <el-col :span="6" >
+         <div class="search_bananer"></div>
+       </el-col>
      </div>
      <nav class="clearfix">
       <div class="showAll" >
@@ -239,18 +239,19 @@ export default {
 
   }
   .itemlist{
-    width: 90px;
+    width: 83px;
     height: 35px;
     text-align: center;
     float: left;
+    font-size: 15px;
   }
   .itemlist option{
-    font-size: 12px;
+    font-size: 15px;
   }
   .search input{
-    width: 690px;
-    min-width: 200px;
+    width: 619px;
     height: 35px;
+    min-width: 200px;
     box-sizing: border-box;
     float: left;
   }
@@ -267,9 +268,9 @@ export default {
     font-size: 20px;
   }
   .search_bananer{
-    margin-top: 12px;
+    margin-top: 8px;
     float: right;
-    width: auto;
+    width: 308px;
     min-width: 200px;
     height: 38px;
     background: #4dd7e4;

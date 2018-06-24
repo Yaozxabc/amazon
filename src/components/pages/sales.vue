@@ -160,9 +160,9 @@ ddd
         //将数组转化为字符串
       }
       //将需要的值赋值给参数对象
-      axios.get("http://localhost:8080/static/abc.json",parms)
+      axios.get("http://localhost:3000/price",parms)
         .then((res)=>{
-          this.price=res.data.price
+          this.price=res.data.name
           console.log(parms)
         }).catch((error)=>{
           console.log(error)
