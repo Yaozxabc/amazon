@@ -1,70 +1,95 @@
 <template>
-  <div>
+  <div class="big_warp">
     <el-container>
-        <el-col :span="4">ddd</el-col>
+        <el-col :span="4" class="leftsider">
+          <leftNav :isShow="isShow" class="leftnav" :pathType="pathType"></leftNav>
+        </el-col>
         <el-col :span="20">
           <BroadList :slides="ImgList" :inv="invtime"></BroadList>
         </el-col>
     </el-container>
-    <el-container  class="content">
+    <el-container  class="content" >
+      <el-row :gutter="2">
        <el-col :span="20">
-         <div class="hotProduct">
-           <ul>
-             <li>
-               <h2> <a href="javascript:">今日</a>镇店之宝</h2>
-               <div class="productInfo_warp">
-                 <div >
-                   <h4>限时热门抢购</h4>
-                   <p class="price"><a href="javascript:">￥<em>99.00</em> </a></p>
-                   <p class="overtime">距离活动结束还有00:36:38</p>
-                   <p class="allProduct"><span></span>全部秒杀产品</p>
+         <section >
+           <div class="hotProduct">
+             <ul>
+               <li>
+                 <h2> <a href="javascript:">今日</a>镇店之宝</h2>
+                 <div class="productInfo_warp">
+                   <div >
+                     <h4>限时热门抢购</h4>
+                     <p class="price"><a href="javascript:">￥<em>99.00</em> </a></p>
+                     <p class="overtime">距离活动结束还有00:36:38</p>
+                     <p class="allProduct"><span></span>全部秒杀产品</p>
+                   </div>
+                   <a class="product_img" href="javascript:">
+                     <img src="../../assets/images/hotImg/hotImg_01.jpg" alt=""/>
+                   </a>
                  </div>
-                 <a class="product_img" href="javascript:">
-                   <img src="../../assets/images/hotImg/hotImg_01.jpg" alt=""/>
-                 </a>
-               </div>
-             </li>
-             <li>
-               <h2> <a href="javascript:">海外购</a>直邮</h2>
-               <div class="productInfo_warp">
-                 <div class="productInfo">
-                   <h4>限时热门抢购</h4>
-                   <p class="price"><a href="javascript:">￥<em>305.08</em> </a></p>
-                   <p class="overtime">距离活动结束还有00:36:38</p>
-                   <p class="allProduct"><span></span>全部秒杀产品</p>
+               </li>
+               <li>
+                 <h2> <a href="javascript:">海外购</a>直邮</h2>
+                 <div class="productInfo_warp">
+                   <div class="productInfo">
+                     <h4>限时热门抢购</h4>
+                     <p class="price"><a href="javascript:">￥<em>305.08</em> </a></p>
+                     <p class="overtime">距离活动结束还有00:36:38</p>
+                     <p class="allProduct"><span></span>全部秒杀产品</p>
+                   </div>
+                   <a class="product_img" href="javascript:">
+                     <img src="../../assets/images/hotImg/hotImg_02.jpg" alt=""/>
+                   </a>
                  </div>
-                 <a class="product_img" href="javascript:">
-                   <img src="../../assets/images/hotImg/hotImg_02.jpg" alt=""/>
-                 </a>
-               </div>
-             </li>
-             <li>
-               <h2> <a href="javascript:">进口品牌街</a>大牌</h2>
-               <div class="productInfo_warp">
-                 <div >
-                   <h4>限时热门抢购</h4>
-                   <p class="price"><a href="javascript:">￥<em>199.00</em> </a></p>
-                   <p class="overtime">距离活动结束还有02:16:38</p>
-                   <p class="allProduct"><span></span>全部秒杀产品</p>
+               </li>
+               <li>
+                 <h2> <a href="javascript:">进口品牌街</a>大牌</h2>
+                 <div class="productInfo_warp">
+                   <div >
+                     <h4>限时热门抢购</h4>
+                     <p class="price"><a href="javascript:">￥<em>199.00</em> </a></p>
+                     <p class="overtime">距离活动结束还有02:16:38</p>
+                     <p class="allProduct"><span></span>全部秒杀产品</p>
+                   </div>
+                   <a class="product_img" href="javascript:">
+                     <img src="../../assets/images/hotImg/hotImg_03.jpg" alt=""/>
+                   </a>
                  </div>
-                 <a class="product_img" href="javascript:">
-                   <img src="../../assets/images/hotImg/hotImg_03.jpg" alt=""/>
-                 </a>
-               </div>
-             </li>
-           </ul>
-         </div>
+               </li>
+             </ul>
+           </div>
+         </section>
+         <section class="clearfix">
+           <recommand></recommand>
+         </section>
+         <section class="clearfix">
+           <secondKill></secondKill>
+         </section>
+         <section class="clearfix">
+           <theme></theme>
+         </section>
        </el-col>
-       <el-col :span="4">sider</el-col>
+       <el-col :span="4">
+         <sider></sider>
+       </el-col>
+      </el-row>
     </el-container>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BroadList from '@/components/common/Broadcast'
-    export default{
+  import recommand from '@/components/common/recommand'
+  import secondKill from '@/components/common/secondKill'
+  import leftNav from '@/components/common/leftNav'
+  import theme from '@/components/common/theme'
+  import sider from '@/components/common/sider'
+
+  export default{
       data(){
     return{
+      pathType:"index",
+      isShow:true,
       invtime:3000,
       ImgList: [
         {src: require('../../assets/images/broadlist/01.jpg'), alt: '沐浴书香', name: '沐浴书香'},
@@ -80,15 +105,35 @@
     }
   },
   components:{
-    BroadList
+    BroadList,recommand,leftNav,secondKill,theme,sider
+  },
+  methods:{
+    showAll(){
+      this.isShow=!this.isShow;
+    }
+  },
+  mounted(){
+//    console.log(this.$store)
   }
     }
 </script>
 
 
 <style>
+  .leftsider{
+    position: relative;
+  }
+  .leftnav{
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .big_warp{
+    overflow-y: hidden;
+  }
   .content{
     margin-top: 20px;
+    overflow-x: hidden
   }
   .hotProduct{
     float: right;

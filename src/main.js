@@ -9,6 +9,7 @@ import {Button,Select} from 'element-ui'
 import '@/assets/scripts/reset.css'
 import '@/assets/iconfont/iconfont.css'
 import  _ from 'lodash'
+import  Store from './store'
 
 Vue.config.productionTip = false
 Vue.use(ElementUi)
@@ -19,6 +20,7 @@ Vue.use(Select)
 new Vue({
   el: '#app',
   router,
+  store:Store,
   components: { App },
   template: '<App/>'
 })

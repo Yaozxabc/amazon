@@ -156,6 +156,14 @@
   created:function(){
         this.showPage(0)
   },
+  computed:{
+//    getTableData(){
+//      return this.$store.getters.getorderFn
+//    }
+  },
+  mounted(){
+//    this.$store.dispatch('fetchOrderList')
+  },
   watch:{
     query(){
      this.getList()

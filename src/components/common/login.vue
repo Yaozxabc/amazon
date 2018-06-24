@@ -13,7 +13,7 @@
     </div>
     <el-row class="clearfix">
       <el-button type="primary" @click="submit">登录</el-button>
-      <el-button type="danger">取消</el-button>
+      <el-button type="danger" @click="close">取消</el-button>
     </el-row>
   </form>
   <h5>{{ErrorText}}</h5>
@@ -22,7 +22,7 @@
 
 <script type="text/ecmascript-6">
   import axios from 'axios'
-  axios.defaults.baseURL = 'http://localhost:8080/#/src'
+//  axios.defaults.baseURL = 'http://localhost:8080/#/src'
     export default{
       data(){
       return{
@@ -80,7 +80,7 @@
           this.ErrorText="用户名或者密码错误"
         }else{
           this.ErrorText=""
-          axios.get('http://localhost:8080/static/Id&Word.json').
+          axios.get('http://localhost:3003/user').
             then(response=>{
 //              alert(response.data.username)
               this.$emit("has-log",response.data)
@@ -88,6 +88,9 @@
               alert("错误")
             })
         }
+      },
+      close(){
+        this.$emit("on-close")
       }
     }
     }

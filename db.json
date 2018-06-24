@@ -1,0 +1,16 @@
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" },
+  "user":{"name":"little ming","age":20},
+  "info":  [
+    {"ID":"yzx","password":123456},
+    {"ID":"abc","password":654321},
+    {"ID":"china-move","password":1008611 },
+    {"ID":"hello","password":118114}
+  ]
+}

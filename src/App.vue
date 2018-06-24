@@ -3,12 +3,12 @@
    <el-header>
      <div class="bananer_top">
        <a href="javascript:">六一儿童节促销礼品,下单立即减100元</a></div>
-     <el-row class="search_top clearfix">
+     <div class="search_top clearfix">
        <el-col :span="3" class="logo">
          <router-link :to="{path:'/'}" class="shop_logo"><h1>amazon.cn</h1></router-link>
          <a href="javascript:" class="user_test"><span class="">免费试享prime</span></a>
          </el-col>
-       <el-col :span="15" class="search">
+       <el-col :span="14" class="search">
          <div class="cover">
          <div class="search_warp">
          <select name="" id="itemlist" class="itemlist">
@@ -20,13 +20,12 @@
          </div>
        </el-col>
        <el-col :span="6" class="search_bananer"></el-col>
-     </el-row>
-
+     </div>
      <nav class="clearfix">
-      <router-link :to="{path:'/details'}" class="showAll">
+      <div class="showAll" >
          <span>浏览</span><br/>
-         <strong>全部商品分类</strong>
-      </router-link>
+         <strong  >全部商品分类</strong>
+      </div>
        <ul class="offentlist">
          <li><a href="javascript:">我的亚马逊</a></li>
          <li><a href="javascript:">z秒杀</a></li>
@@ -63,13 +62,14 @@
            </a>
          </li>
        </ul>
+
      </nav>
    </el-header>
     <el-main  class="clearfix main">
      <router-view></router-view>
     </el-main>
-    <el-footer>
-      <div class="warp clearfix">
+    <el-footer class="clearfix footer">
+      <div class="warpa clearfix">
       <div class="about">
         <h4>了解我们</h4>
       <ul >
@@ -136,7 +136,7 @@
       </div>
     </el-footer>
     <Popup :isShow="isShow0" @on-close="hiddenInfo('isShow0')">
-      <login @has-log="onsuccess"></login>
+      <login @has-log="onsuccess" @on-close="hiddenInfo('isShow0')"></login>
     </Popup>
     <Popup :isShow="isShow1" @on-close="hiddenInfo('isShow1')">
       <div class="WarnText" >hello 欢迎免费试享</div>
@@ -169,6 +169,7 @@ export default {
   }
   ,
   methods:{
+
     showInfo(attr){
       this[attr] = true;
     },
@@ -176,7 +177,7 @@ export default {
       this[attr] = false;
     },
     onsuccess(data){
-      this.username=data.username;
+      this.username=data.name;
       this.isShow0=false;
     },
     quit(){
@@ -274,6 +275,7 @@ export default {
     background: #4dd7e4;
   }
   nav {
+    position:relative;
     width: 100%;
     height: 40px;
     background-image: linear-gradient(#fafafa 0,#efefef 100%);
@@ -352,6 +354,7 @@ export default {
 }
 
   .el-footer{
+
     padding-top: 20px;
     border-top: 1px solid #e0e0e0;
   }
@@ -363,9 +366,10 @@ export default {
     width: 160px;
     padding-right: 0;
   }
-  .warp{
+  .warpa{
     width: 700px;
-    margin: auto;
+    position: relative;
+    margin: 0 auto;
 
   }
 .about h4,.cooperation h4,.help h4,.method_pay h4{
