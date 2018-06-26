@@ -1,48 +1,24 @@
 <template>
   <div class="hotProduct">
     <ul>
-      <li>
-        <h2> <a href="javascript:">今日</a>镇店之宝</h2>
-        <div class="productInfo_warp">
-          <div >
-            <h4>限时热门抢购</h4>
-            <p class="price"><a href="javascript:">￥<em>99.00</em> </a></p>
-            <p class="overtime">距结束还有00:36:38</p>
-            <p class="allProduct"><span></span>全部秒杀产品</p>
-          </div>
-          <a class="product_img" href="javascript:">
-            <img src="../../assets/images/hotImg/hotImg_01.jpg" alt=""/>
-          </a>
-        </div>
-      </li>
-      <li>
-        <h2> <a href="javascript:">海外购</a>直邮</h2>
-        <div class="productInfo_warp">
+      <li v-for="item in hotProduct">
+        <h2> <a href="javascript:">{{item.activeName}}</a>{{item.fixName}}</h2>
+        <div class="productInfo_warp clearfix">
           <div class="productInfo">
             <h4>限时热门抢购</h4>
-            <p class="price"><a href="javascript:">￥<em>305.08</em> </a></p>
-            <p class="overtime">距结束还有00:36:38</p>
-            <p class="allProduct"><span></span>全部秒杀产品</p>
+            <p class="price"><a href="javascript:">￥<em>{{item.price}}</em> </a></p>
+            <p class="overtime">距结束{{item.overtime}}</p>
+            <a href="javascript:" class="allProduct"><span></span>全部秒杀产品</a>
           </div>
-          <a class="product_img" href="javascript:">
-            <img src="../../assets/images/hotImg/hotImg_02.jpg" alt=""/>
-          </a>
+          <div class="product_img">
+            <a  href="javascript:">
+              <img :src="item.imgSrc" alt=""/>
+            </a>
+          </div>
+
         </div>
       </li>
-      <li>
-        <h2> <a href="javascript:">进口品牌街</a>大牌</h2>
-        <div class="productInfo_warp">
-          <div >
-            <h4>限时热门抢购</h4>
-            <p class="price"><a href="javascript:">￥<em>199.00</em> </a></p>
-            <p class="overtime">距结束还有02:16:38</p>
-            <p class="allProduct"><span></span>全部秒杀产品</p>
-          </div>
-          <a class="product_img" href="javascript:">
-            <img src="../../assets/images/hotImg/hotImg_03.jpg" alt=""/>
-          </a>
-        </div>
-      </li>
+
     </ul>
   </div>
 </template>
@@ -50,7 +26,13 @@
 <script type="text/ecmascript-6">
     export default{
         data(){
-            return {}
+            return {
+              hotProduct:[
+                {activeName:"今日",fixName:"镇定之宝",price:"99.00",overtime:"01:02:36",imgSrc:require("../../assets/images/hotImg/hotImg_01.jpg")},
+                {activeName:"海外购",fixName:"直邮",price:"246.00",overtime:"11:02:36",imgSrc:require("../../assets/images/hotImg/hotImg_02.jpg")},
+                {activeName:"进口",fixName:"品牌大街",price:"76.00",overtime:"17:02:36",imgSrc:require("../../assets/images/hotImg/hotImg_03.jpg")}
+              ]
+            }
         }
     }
 </script>
@@ -63,10 +45,10 @@
   }
   .hotProduct li {
     float: left;
-    width: 287px;
+    width: 293px;
     height: 158px;
     box-sizing: border-box;
-    padding: 0 17px;
+    padding: 0 14px;
     border-right: 1px solid #e0e0e0;
     overflow: hidden;
   }
@@ -86,13 +68,14 @@
     color: orange;
   }
   .productInfo_warp{
-    display: flex;
-    align-items: flex-start;
+    overflow: hidden;
     box-sizing:border-box;
     padding: 20px 0px 14px 0;
   }
-  .productInfo{
-    flex: 1;
+  .hotProduct .productInfo{
+    float: left;
+    width: 100px;
+    height: 134px;
   }
   .hotProduct h4 {
     text-align: left;
@@ -112,21 +95,22 @@
   }
   .hotProduct .overtime{
     color: #cccccc;
-    font-size: 12px;
+    font-size: 14px;
     text-align: left;
-
+    margin: 0 0 30px 0;;
   }
   .hotProduct .allProduct{
-    margin-top: 28px;
     color: #999999;
     font-size: 13px;
   }
   .product_img{
-    width: 140px;
+    width: 162px;
+    height: 134px;
+    float: left;
     text-align: center;
   }
   .product_img img{
-    max-width: 160px;
+    max-width: 162px;
     max-height: 134px;
   }
 </style>

@@ -80,7 +80,7 @@
           this.ErrorText="用户名或者密码错误"
         }else{
           this.ErrorText=""
-          axios.get('http://localhost:3003/user').
+          axios.get('http://localhost:8090/user').
             then(response=>{
 //              alert(response.data.username)
               this.$emit("has-log",response.data)

@@ -2,86 +2,51 @@
 <div class="productTheme">
   <div class="theme_hd clearfix">
     <h3>
-      <i class="iconfont icon-book"></i>
-      <span>海外购</span>
+      <i :class="['iconfont','icon-'+themeInfo.header.icon]"></i>
+      <span>{{themeInfo.header.title}}</span>
       <ul>
-        <li>奶粉 </li>
-        <li>美妆 </li>
-        <li>箱包 </li>
-        <li>热门品牌 </li>
+        <li v-for="item in themeInfo.header.list"><a :href="item.href">{{item.name}}</a></li>
       </ul>
     </h3>
   </div>
   <div class="theme_content">
     <ul class="first_row">
-      <li>
-        <div class="brand_info bg1">
-          <p class="brand_name">新百伦</p>
-          <h4 >热销产品</h4>
+      <li  v-for="item in themeInfo.content.firstRow.Info">
+        <div :class="['brand_info',item.color]">
+          <p class="brand_name">{{item.title}}</p>
+          <h4 >{{item.label}}</h4>
           <a href="javascript:" class="more">查看更多</a>
         </div>
         <div class="brand_show">
-          <img src="../../assets/images/theme/haiwaigou/01.jpg" alt=""/>
+          <img :src="item.src" alt="item.name"/>
   </div>
       </li>
-      <li>
-        <div class="brand_info bg2">
-          <p class="brand_name"></p>
-          <h4 >热销产品</h4>
-          <a href="javascript:" class="more">查看更多</a>
-        </div>
-        <div class="brand_show">
-          <img src="../../assets/images/theme/haiwaigou/02.jpg" alt=""/>
-        </div>
-
-      </li>
-      <li class="lastLi bg3">
+      <li :class="['lastLi',themeInfo.content.firstRow.lastLi.color]" >
         <div>
         <h3>搜索热词</h3>
         <ul class="searchlist">
-          <li><a href="javascript:">雅诗兰黛</a></li>
-          <li><a href="javascript:">kinddle</a></li>
-          <li><a href="javascript:">NIKE</a></li>
-          <li><a href="javascript:">Addris</a></li>
-          <li><a href="javascript:">exo</a></li>
-          <li><a href="javascript:">Anta</a></li>
+          <li v-for="name in themeInfo.content.firstRow.lastLi.list"><a href="javascript:">{{name}}</a></li>
         </ul>
         </div>
       </li>
     </ul>
     <ul class="second_row">
-      <li>
-        <div class="brand_info bg4">
-          <p class="brand_name">新百伦</p>
-          <h4 >热销产品</h4>
+      <li  v-for="item in themeInfo.content.secondRow.Info">
+        <div :class="['brand_info',item.color]">
+          <p class="brand_name">{{item.title}}</p>
+          <h4 >{{item.label}}</h4>
           <a href="javascript:" class="more">查看更多</a>
         </div>
         <div class="brand_show">
-          <img src="../../assets/images/theme/haiwaigou/03.jpg" alt=""/>
-        </div>
+          <img :src="item.src" alt="item.name"/>
+  </div>
       </li>
-      <li>
-        <div class="brand_info bg5">
-          <p class="brand_name"></p>
-          <h4 >热销产品</h4>
-          <a href="javascript:" class="more">查看更多</a>
-        </div>
-        <div class="brand_show">
-          <img src="../../assets/images/theme/haiwaigou/04.jpg" alt=""/>
-        </div>
-
-      </li>
-      <li class="lastLi bg6">
+      <li :class="['lastLi',themeInfo.content.secondRow.lastLi.color]" >
         <div>
-          <h3>搜索热词</h3>
-          <ul class="searchlist">
-            <li><a href="javascript:">雅诗兰黛</a></li>
-            <li><a href="javascript:">kinddle</a></li>
-            <li><a href="javascript:">NIKE</a></li>
-            <li><a href="javascript:">Addris</a></li>
-            <li><a href="javascript:">exo</a></li>
-            <li><a href="javascript:">Anta</a></li>
-          </ul>
+        <h3>搜索热词</h3>
+        <ul class="searchlist">
+          <li v-for="name in themeInfo.content.secondRow.lastLi.list"><a href="javascript:">{{name}}</a></li>
+        </ul>
         </div>
       </li>
     </ul>
@@ -91,7 +56,14 @@
 </template>
 
 <script type="text/ecmascript-6">
+
     export default{
+      props:{
+       themeInfo:{
+          type:Object,
+          default:{}
+        }
+      },
         data(){
             return {}
         }
