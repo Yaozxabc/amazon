@@ -1,37 +1,39 @@
 <template>
 <div>
-  <el-row  :gutter="20">
-    <el-col :span="10">img</el-col>
-    <el-col :span="8">info</el-col>
-    <el-col :span="6">
-      <div class="user_selection">
-        <p> <el-checkbox v-model="checked"></el-checkbox>试享亚马逊免费配送</p>
-        <p class="count"><span>数量：</span>
-          <selection class="mySel" :selection="selName" on-change=""></selection>
-        </p>
-
-        <el-button type="warning"><i></i>加入购物车</el-button>
-        <div class="tips">
-          <h5><a href="javascript:">开启一键下载功能</a></h5>
-          <h5><a href="javascript:">（什么是一键下载功能？）</a></h5>
-        </div>
-        <el-button type="info">加入心愿单</el-button>
-      </div>
-      <div class="recharge">
-        <el-button type="info">账户充值</el-button>
-      </div>
-    </el-col>
-  </el-row>
+  <typeModule :Info="module"></typeModule>
 </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import typeModule from "@/components/pages/details/typeModule"
     export default{
       data(){
       return{
-
+        module:{
+          bg:"yellow",
+          big_product:{path:"/sales",ImgSrc:require("../../../assets/images/pageSession/big/big_03.jpg"),name:"GEQX",describe:"会呼吸的鞋",price:"259"},
+          middle_product:[
+            {path:'',ImgSrc:require("../../../assets/images/pageSession/middle/middle_05.jpg"),title:"当季聚焦",name:"果冻鞋/洞洞鞋",price:"119"},
+            {path:'',ImgSrc:require("../../../assets/images/pageSession/middle/middle_06.jpg"),title:"全国首发",name:"洞洞鞋",price:"46"}
+          ],
+          small_product:[
+            {path:"/sales",ImgSrc:require("../../../assets/images/pageSession/small/small_09.jpg"),describe:"男士 无限 超级运动鞋 动感 超级 super 给不一样的你",max:"200",min:"46"},
+            {path:"/sales",ImgSrc:require("../../../assets/images/pageSession/small/small_10.jpg"),describe:"男士 无限 超级运动鞋 动感 超级 super 给不一样的你",max:"388",min:"199"},
+            {path:"/sales",ImgSrc:require("../../../assets/images/pageSession/small/small_11.jpg"),describe:"男士 无限 超级运动鞋 动感 超级 super 给不一样的你",max:"198",min:"88"},
+            {path:"/sales",ImgSrc:require("../../../assets/images/pageSession/small/small_12.jpg"),describe:"男士 无限 超级运动鞋 动感 超级 super 给不一样的你",max:"465",min:"55"}
+          ],
+          brand:[
+            {path:"/sales",imgSrc:require("../../../assets/images/pageSession/brand/brand_01.jpg"),name:"时尚演绎经典"},
+            {path:"/sales",imgSrc:require("../../../assets/images/pageSession/brand/brand_02.jpg"),name:"经典实现超越"},
+            {path:"/sales",imgSrc:require("../../../assets/images/pageSession/brand/brand_03.jpg"),name:"时光造就穿越"},
+            {path:"/sales",imgSrc:require("../../../assets/images/pageSession/brand/brand_04.jpg"),name:"天籁来之平凡"}
+          ]
+        }
       }
-    }
+    },
+  components:{
+    typeModule
+  }
     }
 </script>
 

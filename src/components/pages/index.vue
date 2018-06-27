@@ -9,7 +9,7 @@
         </el-col>
     </el-container>
     <el-container  class="content" >
-      <el-row :gutter="2">
+      <el-row :gutter="20">
        <el-col :span="20">
          <section class="clearfix" >
            <hotProduct></hotProduct>

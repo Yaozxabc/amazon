@@ -1,75 +1,44 @@
 <template>
 <div>
-  <div class="big_product clearfix">
-    <router-link :to="{path:'/sales'}">
-      <img src="../../../assets/images/pageSession/big/big_01.jpg" alt=""/>
+  <div class="big_product clearfix" :style="{background:Info.bg}">
+    <router-link :to="{path:Info.big_product.path}">
+      <img :src="Info.big_product.ImgSrc" alt="Info.big_product.name"/>
       <div>
-        <h5>GEQX</h5>
-        <p>会呼吸的鞋 <br/>259元起</p>
+        <h5>{{Info.big_product.name}}</h5>
+        <p>{{Info.big_product.name}} <br/>{{Info.big_product.price}}元起</p>
         <span>点击查看</span>
       </div>
     </router-link>
   </div>
   <div class="small_product">
     <ul>
-      <li>
-        <router-link :to="{path:'/sales'}">
-          <img src="../../../assets/images/pageSession/small/small_01.png" alt=""/>
-          <h6>男士 无限 超级运动鞋 动感 超级 super 给不一样的你</h6>
-          <span>￥300-500</span>
+      <li v-for="item in Info.small_product">
+        <router-link :to="{path:item.path}">
+          <img :src="item.ImgSrc" alt="item.name"/>
+          <h6>{{item.describe}}</h6>
+          <span>￥{{item.min}}-{{item.max}}</span>
       </router-link>
-      </li>
-      <li>
-        <a href="javascript:">
-          <img src="../../../assets/images/pageSession/small/small_02.png" alt=""/>
-          <h6>男士 无限 超级运动鞋</h6>
-          <span>￥300-500</span>
-      </a>
-      </li>
-      <li>
-        <a href="javascript:">
-          <img src="../../../assets/images/pageSession/small/small_03.png" alt=""/>
-          <h6>男士 无限 超级运动鞋</h6>
-          <span>￥300-500</span>
-      </a>
-      </li>
-      <li>
-        <a href="javascript:">
-          <img src="../../../assets/images/pageSession/small/small_04.png" alt=""/>
-          <h6>男士 无限 超级运动鞋</h6>
-          <span>￥300-500</span>
-      </a>
       </li>
     </ul>
   </div>
   <div class="middle_product">
     <ul>
-      <li><a href="javascript:">
+      <li v-for="item in Info.middle_product">
+        <router-link :to="{path:item.path}">
         <div>
-          <h5>当季聚焦</h5>
-          <p>果冻鞋/洞洞鞋</p>
-          <strong>119元起</strong>
+          <h5>{{item.title}}</h5>
+          <p>{{item.name}}</p>
+          <strong>{{item.price}}元起</strong>
           <span>查看促销</span>
         </div>
-        <img src="../../../assets/images/pageSession/middle/middle_02.jpg" alt=""/>
-      </a></li>
-      <li><a href="javascript:">
-        <div>
-          <h5>当季聚焦</h5>
-          <p>洞洞鞋</p>
-          <strong>￥119元</strong>
-          <span>查看促销</span>
-        </div>
-        <img src="../../../assets/images/pageSession/middle/middle_01.jpg" alt=""/>
-      </a></li>
+        <img :src="item.ImgSrc" alt="item.name"/>
+      </router-link>
+      </li>
     </ul>
   </div>
   <div class="brand">
     <ul>
-      <li><img src="../../../assets/images/pageSession/brand/brand_01.jpg" alt=""/><p>时尚演绎经典</p></li>
-      <li><img src="../../../assets/images/pageSession/brand/brand_02.jpg" alt=""/><p>时尚演绎经典</p></li>
-      <li><img src="../../../assets/images/pageSession/brand/brand_03.jpg" alt=""/><p>时尚演绎经典</p></li>
-      <li><img src="../../../assets/images/pageSession/brand/brand_04.jpg" alt=""/><p>时尚演绎经典</p></li>
+      <li v-for="item in Info.brand"><img :src="item.imgSrc" alt="item.name"/><p>{{item.name}}</p></li>
     </ul>
   </div>
 </div>
@@ -77,6 +46,12 @@
 
 <script type="text/ecmascript-6">
     export default{
+      props:{
+        Info:{
+          type:Object,
+          default:{}
+        }
+      },
       data(){
       return{
 
@@ -90,8 +65,7 @@
 .big_product{
   float: left;
   width: 210px;
-  height: 464px;
-  background: red;
+  height: 460px;
 }
 .big_product div{
   width: 210px;
@@ -129,7 +103,7 @@
   }
   .small_product li{
     width: 212px;
-    height: 231px;
+    height: 230px;
     float: left;
     padding: 0 14px;
     box-sizing: border-box;
@@ -158,7 +132,7 @@
     background: #f5f5f5;
     float: left;
     width: 300px;
-    height: 465px;
+    height: 460px;
     color: #000000;
   }
   .middle_product li:first-child{
@@ -167,7 +141,7 @@
   .middle_product li{
     float: left;
     width: 100%;
-    height: 232px;
+    height: 230px;
     text-align: left;
     padding: 34px 16px;
     box-sizing: border-box;
@@ -206,9 +180,11 @@
   .brand{
     float: left;
     width: 144px;
-    height: 464px;
+    height: 460px;
+
   }
   .brand li{
+    box-sizing: border-box;
     border-bottom: 1px solid #e0e0e0;
     width: 100%;
     height: 115px;

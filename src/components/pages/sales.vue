@@ -1,7 +1,7 @@
 <template>
   <el-row  :gutter="20">
     <el-col :span="10">
-ddd
+      <productShow></productShow>
     </el-col>
     <el-col :span="8">
       <ciycle :slide="ciycle" @on-change="tel"></ciycle>
@@ -76,6 +76,7 @@ ddd
   import radioSel from '@/components/common/base/radioSel'
   import multiSel from '@/components/common/base/multiSel'
   import ciycle from '@/components/common/base/ciycle'
+  import productShow from '@/components/common/base/productShow'
   import showInfo from '@/components/common/base/ShowInfo'
   import Number from '@/components/common/base/counterNumber'
   import Popup from '@/components/common/Popup'
@@ -126,7 +127,7 @@ ddd
       }
     },
   components:{
-    selection,radioSel,multiSel,ciycle,Number,Popup,banks,showInfo
+    selection,radioSel,multiSel,ciycle,Number,Popup,banks,showInfo,productShow
   },
   methods:{
     tel(data){
