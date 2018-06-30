@@ -12,7 +12,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-  mode:"history"
   import BroadList from '@/components/common/Broadcast'
   import leftNav from '@/components/common/leftNav'
     export default{

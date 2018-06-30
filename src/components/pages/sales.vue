@@ -1,10 +1,12 @@
 <template>
   <el-row  :gutter="20">
     <el-col :span="10">
-      <productShow></productShow>
+      <div>
+        <productImg :aimg="{a:smImg,b:bigImg,c:XLImg}"></productImg>
+      </div>
     </el-col>
     <el-col :span="8">
-      <ciycle :slide="ciycle" @on-change="tel"></ciycle>
+      <productSel></productSel>
     </el-col>
     <el-col :span="6">
       <div class="user_selection">
@@ -30,7 +32,6 @@
         <p>
           <strong>价格：</strong><span>{{price}}</span>
         </p>
-        <el-button class="mybtn" type="warning" @click="getPrice"><i></i>加入购物车</el-button>
         <el-button  type="danger" @click="isShowPopup"><i></i>买单结算</el-button>
         <div class="tips">
           <h5><a href="javascript:">开启一键下载功能</a></h5>
@@ -72,11 +73,11 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import productImg from '@/components/common/base/productShow'
   import selection from '@/components/common/base/selection'
   import radioSel from '@/components/common/base/radioSel'
   import multiSel from '@/components/common/base/multiSel'
-  import ciycle from '@/components/common/base/ciycle'
-  import productShow from '@/components/common/base/productShow'
+  import productSel from '@/components/common/base/productSel'
   import showInfo from '@/components/common/base/ShowInfo'
   import Number from '@/components/common/base/counterNumber'
   import Popup from '@/components/common/Popup'
@@ -90,11 +91,8 @@
         buyList:[],
         buyName:{},
         buyCount:0,
-
         isPopup:false,
         isSure:false,
-
-
         number:0,
         ciycle:[3,3,3,3,3],
         checked:false,
@@ -123,11 +121,32 @@
           {name:"广发银行",id:'501',href:"javascript:",className:"guangfa"},
           {name:"兴业银行",id:'601',href:"javascript:",className:"xingye"}
         ],
-        orderId:"101"
+        orderId:"101",
+        smImg:[
+          {id:1,src:require("../../assets/images/productDetail/smallImg/smallImg01.jpg"),alt:"电饭煲"},
+          {id:2,src:require("../../assets/images/productDetail/smallImg/smallImg02.jpg"),alt:"电饭煲"},
+          {id:3,src:require("../../assets/images/productDetail/smallImg/smallImg03.jpg"),alt:"电饭煲"},
+          {id:4,src:require("../../assets/images/productDetail/smallImg/smallImg04.jpg"),alt:"电饭煲"},
+          {id:5,src:require("../../assets/images/productDetail/smallImg/smallImg05.jpg"),alt:"电饭煲"}
+        ],
+        bigImg:[
+          {id:1,src:require("../../assets/images/productDetail/bigImg/bigImg01.jpg"),alt:"电饭煲"},
+          {id:2,src:require("../../assets/images/productDetail/bigImg/bigImg02.jpg"),alt:"电饭煲"},
+          {id:3,src:require("../../assets/images/productDetail/bigImg/bigImg03.jpg"),alt:"电饭煲"},
+          {id:4,src:require("../../assets/images/productDetail/bigImg/bigImg04.jpg"),alt:"电饭煲"},
+          {id:5,src:require("../../assets/images/productDetail/bigImg/bigImg05.jpg"),alt:"电饭煲"}
+        ],
+        XLImg:[
+          {id:"01",src:require("../../assets/images/productDetail/XLImg/XLImg01.jpg"),alt:"电饭煲"},
+          {id:"02",src:require("../../assets/images/productDetail/XLImg/XLImg02.jpg"),alt:"电饭煲"},
+          {id:"03",src:require("../../assets/images/productDetail/XLImg/XLImg03.jpg"),alt:"电饭煲"},
+          {id:"04",src:require("../../assets/images/productDetail/XLImg/XLImg04.jpg"),alt:"电饭煲"},
+          {id:"05",src:require("../../assets/images/productDetail/XLImg/XLImg05.jpg"),alt:"电饭煲"}
+        ]
       }
     },
   components:{
-    selection,radioSel,multiSel,ciycle,Number,Popup,banks,showInfo,productShow
+    selection,radioSel,multiSel,Number,Popup,banks,showInfo,productImg,productSel
   },
   methods:{
     tel(data){
@@ -211,7 +230,9 @@
 
 
 <style >
-
+.el-row{
+  overflow-x: hidden;
+}
 .el-checkbox{
   margin-right: 5px;
 }
