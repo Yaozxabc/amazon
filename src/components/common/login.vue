@@ -11,7 +11,7 @@
       <input type="password" id="password" v-model="PassWord" />
       <p class="ErrorText">{{testWord.ErrorText}}</p>
     </div>
-    <el-row class="clearfix">
+    <el-row class="btn clearfix">
       <el-button type="primary" @click="submit">登录</el-button>
       <el-button type="danger" @click="close">取消</el-button>
     </el-row>
@@ -131,5 +131,8 @@
     margin-left: 80px;
     font-size: 12px;
     text-align: left;
+  }
+  .btn{
+    margin-top: 30px;
   }
 </style>

@@ -54,7 +54,7 @@
 <style scoped>
 .select_warp{
   position: relative;
-  width: 80px;
+  width: 130px;
   text-align: center;
 }
 .curSel{

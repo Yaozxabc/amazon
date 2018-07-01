@@ -34,13 +34,13 @@
 
 <style scoped>
 .SelGroup ul{
-  width: 328px;
-  height: 30px;
+
 }
   .SelGroup li{
     float: left;
-    width: 60px;
-    height: 100%;
+    width: 130px;
+    height: 48px;
+    margin-right: 12px;;
     border-radius: 4px;
     border: 1px solid #e0e0e0;
   }
@@ -48,13 +48,14 @@
     display: block;
     width: 100%;
     height: 100%;
-    line-height: 30px;
+    line-height: 48px;
     text-align: center;
     font-size: 12px;
     color: #000;
   }
   .active a{
-    color: #ffffff;
-    background: #009926;
+    color: orangered;
+    background: #ffffff;
+   border: 1px dotted orangered;
   }
 </style>

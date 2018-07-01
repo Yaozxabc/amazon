@@ -4,10 +4,10 @@
       <li :class="{active:index==nowIndex}" v-for="(img,index) in smImg" @mouseover="tabShow(index)"><img :src="img.src" :alt="img.alt"/></li>
     </ul>
     <div class="product_show"  id="bigbox">
-      <div class="img"  @mousemove="showDetail" id="img" >
+      <div class="img"  @mousemove.stop="showDetail" id="img" >
         <img :src="bigImg[nowIndex].src" alt="bigImg[nowIndex].alt"  />
       </div>
-      <div  class="mark" v-show="isShow" id="mark"  @mouseout="out" ></div>
+      <div  class="mark" v-show="isShow" id="mark"  @mouseout.stop="out" ></div>
       <div class="product_detail"  id="detail" v-show="isShow">
         <img :src="XLImg[nowIndex].src" alt="XLImg[nowIndex].alt" id="ximg" />
       </div>
@@ -52,6 +52,7 @@
       },
       out($event){
         this.isShow=false;
+        document.onmousemove=null;
       },
       getOffset(ev){
         let bigbox=document.getElementById("bigbox");
@@ -130,6 +131,7 @@
     background: darkcyan;
     opacity: .3;
     z-index: 2;
+    cursor: move;
     overflow: hidden;
   }
   .product_detail{

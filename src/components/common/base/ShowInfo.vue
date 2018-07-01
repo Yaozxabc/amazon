@@ -2,7 +2,7 @@
 <div class="SureInfo">
   <Popup :isShow="isaShow" @on-close="closeSure">
   <p>确认一下你的订单是否已经完成支付操作</p>
-  <p>
+  <p class="btn">
     <el-button type="danger" @click="successInfo">支付成功</el-button>
     <el-button type="info" @click="errorInfo">支付失败</el-button>
   </p>
@@ -61,6 +61,9 @@ components:{
 </script>
 
 
-<style>
+<style scoped>
+  .SureInfo .btn{
+    margin-top: 20px;
+  }
 
 </style>

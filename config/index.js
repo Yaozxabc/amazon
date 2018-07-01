@@ -9,10 +9,10 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: "/",
+    assetsPublicPath: "./",
     proxyTable: {
       '/api/': {
-        target: 'http://localhost:3000/', //设置调用接口域名和端口号别忘了加http
+        target: 'http://localhost:3030/', //设置调用接口域名和端口号别忘了加http
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/' //这里理解成用‘/api’代替target里面的地址，组件中我们调接口时直接用/api代替
@@ -52,7 +52,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

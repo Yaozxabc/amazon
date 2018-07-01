@@ -11,6 +11,20 @@
     <el-col :span="6">
       <div class="user_selection">
         <p> <el-checkbox v-model="checked"></el-checkbox>试享亚马逊免费配送</p>
+        <p><strong>单选：</strong>
+          <!--1、返回当前选择数组中对应的对象，返回值为对象-->
+          <keep-alive>
+          <radioSel :selections="radioList" @on-change="onParmsChange('buyType',$event)"></radioSel>
+          </keep-alive>
+        </p>
+        <p><strong>多选：</strong>
+          <!--2、返回用户多选择类型，返回值为数组对象-->
+          <multiSel  :selections="multiList" @on-change="onParmsChange('buyList',$event)"></multiSel>
+        </p>
+        <p class="count"><strong>下拉选择：</strong><br/>
+          <!--3、返回用户选择类型，返回值为对象-->
+          <selection class="mySel" :selection="selName" @on-change="onParmsChange('buyName',$event)"></selection>
+        </p>
         <p><strong>数量：</strong>
           <!--4、返回用户选择数量，返回值为数字-->
           <Number :num="number"  @on-change="onParmsChange('buyCount',$event)"></Number>
@@ -18,12 +32,12 @@
         <p>
           <strong>价格：</strong><span>{{price}}</span>
         </p>
-        <el-button  type="danger" class="mybtn" @click="isShowPopup"><i></i>买单结算</el-button>
+        <el-button  type="danger" @click="isShowPopup"><i></i>买单结算</el-button>
         <div class="tips">
           <h5><a href="javascript:">开启一键下载功能</a></h5>
           <h5><a href="javascript:">（什么是一键下载功能？）</a></h5>
         </div>
-        <el-button class="mybtn" type="warning">加入心愿单</el-button>
+        <el-button class="mybtn" type="info">加入心愿单</el-button>
       </div>
       <div class="recharge">
         <el-button class="mybtn" type="info"  >账户充值</el-button>
@@ -49,7 +63,7 @@
         </tbody>
       </table>
       <banks :bankList="banksList" @on-change="toChooseBank"></banks>
-      <p class="clearfix mybtn">
+      <p class="clearfix">
       <el-button type="success" @click="isShowSure">提交</el-button>
       <el-button type="info">取消</el-button>
       </p>
@@ -176,11 +190,7 @@
 
     },
     isShowPopup(){
-      if(this.buyCount==0){
-        alert("你还没有确认商品数量，请选择商品");
-        return ;
-      }
-      this.isPopup=true;
+      this.isPopup=true
     },
     noShowPopup(){
       this.isPopup=false
@@ -239,11 +249,11 @@
     font-weight: bold;
     color: #C21F39;
   }
-.user_selection .mybtn{
+  .mybtn{
     width: 208px;
     height: 36px;
     margin-bottom: 10px;
-    margin-top: 30px;
+    margin-top: 76px;
   }
   .tips{
     margin: 0 auto;
@@ -288,7 +298,4 @@
 .Product-table tr:nth-of-type(1) td{
   font-size: 18px;
 }
-  .mybtn{
-  margin-top: 30px;
-  }
 </style>
