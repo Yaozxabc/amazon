@@ -59,7 +59,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .siderList{
   width: 250px;
 }

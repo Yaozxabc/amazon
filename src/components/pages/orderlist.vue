@@ -173,7 +173,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .salelist span{
     float: left;
     height: 40px;

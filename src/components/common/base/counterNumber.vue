@@ -58,14 +58,14 @@
 </script>
 
 
-<style>
+<style scoped>
  .minus,.add{
   width: 20px;
   height: 20px;
    text-align: center;
    padding: 0;
 }
-  .number{
+ .number{
     width: 20px;
     height: 20px;
     padding: 0;

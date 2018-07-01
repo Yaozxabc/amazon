@@ -38,7 +38,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .hotProduct{
     float: right;
     margin-right: 10px;

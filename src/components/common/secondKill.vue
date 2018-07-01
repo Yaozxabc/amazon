@@ -46,7 +46,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .secondKillWarp{margin-top:20px;padding-top: 36px;border-top: 1px solid #cccccc}
   .secondKillWarp h3{font-size: 26px;font-weight: bold;text-align: left}
   .loading_hd{}

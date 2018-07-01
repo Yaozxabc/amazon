@@ -34,7 +34,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .recommand {padding-top: 30px;clear: both}
   .recommand h2{height: 25px;line-height: 25px;padding-bottom: 5px;font-size: 25px;text-align: left;font-weight: bold}
   .recommand h2 i{width: 25px;height: 25px;font-size: 30px}

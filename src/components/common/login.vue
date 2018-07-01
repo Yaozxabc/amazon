@@ -97,7 +97,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .userForm{
   padding: 40px 0 25px 0;
   text-align: center;

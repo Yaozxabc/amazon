@@ -71,7 +71,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .productTheme{width: 1018px;padding-top: 84px;}
   .theme_hd{height: 40px;}
   .theme_hd h3{height: 32px;line-height:32px;margin-bottom: 8px;}

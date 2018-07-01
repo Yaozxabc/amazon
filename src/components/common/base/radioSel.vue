@@ -32,7 +32,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .SelGroup ul{
   width: 328px;
   height: 30px;

@@ -33,7 +33,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .bank_warp{
     width: 360px;
     height: 54px;

@@ -189,6 +189,8 @@ export default {
 
 <style>
 #app {
+  width: 100%;
+  margin: 0 auto;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -351,6 +353,8 @@ export default {
     color: #000000;
   }
 .main{
+  width: 100%;
+  margin: 0 auto;
   min-height: 400px;
 }
 

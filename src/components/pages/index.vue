@@ -109,7 +109,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .leftsider{
     position: relative;
   }

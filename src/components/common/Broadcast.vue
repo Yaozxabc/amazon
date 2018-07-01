@@ -81,7 +81,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .slides_move-enter-active{
     transition: all .5s;
   }

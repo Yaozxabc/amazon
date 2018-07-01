@@ -61,7 +61,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .big_product{
   float: left;
   width: 210px;

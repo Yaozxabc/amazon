@@ -51,7 +51,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .select_warp{
   position: relative;
   width: 80px;

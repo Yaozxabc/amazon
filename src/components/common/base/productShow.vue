@@ -90,7 +90,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .sImg_list{
   width: 64px;
   height: 420px;

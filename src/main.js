@@ -10,6 +10,7 @@ import '@/assets/scripts/reset.css'
 import '@/assets/iconfont/iconfont.css'
 import  _ from 'lodash'
 import  Store from './store'
+import "lib-flexible"
 
 Vue.config.productionTip = false
 Vue.use(ElementUi)

@@ -229,7 +229,7 @@
 </script>
 
 
-<style >
+<style scoped>
 .el-row{
   overflow-x: hidden;
 }

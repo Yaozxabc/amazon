@@ -62,7 +62,7 @@
 </script>
 
 
-<style>
+<style scoped>
   .leftNav{
     width: 180px;
     padding: 15px;
