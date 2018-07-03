@@ -1,7 +1,9 @@
 <template>
 <div class="SelGroup">
   <ul>
-    <li v-for="(item,index) in selections" :class="{active:nowIndex===index}" @click="getCur(index)"><a href="javascript:" >{{item.name}}</a></li>
+    <li v-for="(item,index) in selections" :class="{active:nowIndex===index}" @click="getCur(index)"><a href="javascript:" >
+      <p>{{item.name}}</p>
+      <p>￥{{item.value}}</p></a></li>
   </ul>
 </div>
 </template>
@@ -52,6 +54,10 @@
     text-align: center;
     font-size: 12px;
     color: #000;
+  }
+  .SelGroup p{
+    height: 20px;
+    line-height: 20px;
   }
   .active a{
     color: orangered;

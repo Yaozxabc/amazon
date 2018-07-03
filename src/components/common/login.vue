@@ -80,9 +80,8 @@
           this.ErrorText="用户名或者密码错误"
         }else{
           this.ErrorText=""
-          axios.get('http://localhost:8090/user').
+          axios.post('http://rapapi.org/mockjsdata/35319/productlist',{id:"01",name:"hello"}).
             then(response=>{
-//              alert(response.data.username)
               this.$emit("has-log",response.data)
             },(error)=>{
               alert("错误")

@@ -14,7 +14,7 @@
            <option value="全部商品" selected>全部商品</option>
          </select>
          <input type="text"/>
-         <a href="javascrit:"><i class="iconfont icon-search"></i></a>
+         <a href="javascript:"><i class="iconfont icon-search"></i></a>
        </div>
        </el-col>
        <el-col :span="6" >
@@ -177,7 +177,7 @@ export default {
       this[attr] = false;
     },
     onsuccess(data){
-      this.username=data.name;
+      this.username=data.username;
       this.isShow0=false;
     },
     quit(){
@@ -353,6 +353,7 @@ export default {
     color: #000000;
   }
 .main{
+  overflow-x: hidden;
   width: 100%;
   margin: 0 auto;
   min-height: 400px;

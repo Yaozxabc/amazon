@@ -1,12 +1,12 @@
 <template>
-  <el-row  :gutter="20">
+  <el-row  :gutter="20" class="box_warp">
     <el-col :span="10">
       <div>
         <productImg :aimg="{a:smImg,b:bigImg,c:XLImg}"></productImg>
       </div>
     </el-col>
     <el-col :span="8">
-      <productSel></productSel>
+      <productSel @on-change="getInfo"></productSel>
     </el-col>
     <el-col :span="6">
       <div class="user_selection">
@@ -34,17 +34,21 @@
         <tbody>
         <tr class="title">
           <td>序号</td>
-          <td>类型</td>
+          <td>产品</td>
           <td>数量</td>
-          <td>级别</td>
-          <td>价格</td>
+          <td>单价</td>
+          <td>总价</td>
         </tr>
         <tr>
           <td>01</td>
           <td>{{ buyType.name }}</td>
           <td>{{ buyCount }}</td>
-          <td>{{buyName.name}}</td>
-          <td>{{price}}</td>
+          <td>{{buyType.value}}</td>
+          <td>{{buyType.value*buyCount}}</td>
+        </tr>
+        <tr>
+          <td>地址：</td>
+          <td colspan="3">{{address.name}}</td>
         </tr>
         </tbody>
       </table>
@@ -72,6 +76,7 @@
     export default{
       data(){
       return{
+        address:{},
         price:0,
         buyType:{},
         buyList:[],
@@ -128,6 +133,18 @@
           {id:"03",src:require("../../assets/images/productDetail/XLImg/XLImg03.jpg"),alt:"电饭煲"},
           {id:"04",src:require("../../assets/images/productDetail/XLImg/XLImg04.jpg"),alt:"电饭煲"},
           {id:"05",src:require("../../assets/images/productDetail/XLImg/XLImg05.jpg"),alt:"电饭煲"}
+        ],
+        addresslist:[
+          {id:"01",name:"广州市天河区同福路"},
+          {id:"02",name:"汕头市金平区粤海路"},
+          {id:"03",name:"北京市海淀区镇阳路"},
+          {id:"04",name:"上海市明湖区豆腐路"},
+          {id:"05",name:"杭州市西湖区科技路"}
+        ],
+        productList:[
+          {id:"01",name:"HBH10C/3L",value:"2180"},
+          {id:"02",name:"HCH10C/5L",value:"1980"},
+          {id:"03",name:"HBH08C/3L",value:"2150"}
         ]
       }
     },
@@ -152,6 +169,10 @@
       this[attr]=value;
       this.getPrice()
     },
+    getInfo(data){
+      this.buyType=data.product;
+      this.address=data.address;
+    },
     getPrice(){
       let buyArray= _.map(this.buyList,(idx)=>{
         return idx.value
@@ -160,15 +181,16 @@
       let parms={
         buyType:this.buyType.value,
         buyCount:this.buyCount,
-        buyName:this.buyName.value,
-        buyList: buyArray.join(","),
-        orderId: this.orderId
-        //将数组转化为字符串
+//        buyName:this.buyName.value,
+//        buyList: buyArray.join(","),
+//        orderId: this.orderId,
+        price:this.price
+//        //将数组转化为字符串
       }
       //将需要的值赋值给参数对象
-      axios.get("http://localhost:3000/price",parms)
+      axios.post("http://rapapi.org/mockjsdata/35319/productprice",parms)
         .then((res)=>{
-          this.price=res.data.name
+          this.price=res.data.price
           console.log(parms)
         }).catch((error)=>{
           console.log(error)
@@ -209,10 +231,11 @@
 
   },
   mounted:function(){
-    this.buyType=this.radioList[0],
+    this.buyType=this.productList[0],
     this.buyCount=1,
     this.buyList=[this.multiList[0]],
-    this.buyName=this.selName[0],
+    this.buyName=this.selName[0];
+    this.address=this.addresslist[0];
       this.getPrice()
   }
     }
@@ -220,9 +243,6 @@
 
 
 <style scoped>
-.el-row{
-  overflow-x: hidden;
-}
 .el-checkbox{
   margin-right: 5px;
 }
@@ -290,5 +310,6 @@
 }
   .mybtn{
   margin-top: 30px;
+    font-size: 14px;
   }
 </style>

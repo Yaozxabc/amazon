@@ -4,17 +4,17 @@
     <p class="product_name">GARMIN 佳明</p>
     <p class="product_comment"><span><img src="" alt=""/></span><span><a href="javascript:"> 6条商品评论</a></span>|<span class="product_share">分享</span></p>
     <div class="product_price">
-      售价：<span>￥2,180</span><i>免运费</i><a href="javascript:">详情</a>
+      售价：<span>￥{{price}}</span><i>免运费</i><a href="javascript:">详情</a>
     </div>
-    <p class="product_price_info"><span>全新品2</span>售价从 <span>2180</span> 起</p>
-    <p class="product_color"><span>颜色：</span><em>象牙白</em></p>
+    <p class="product_price_info"><span>全新品2</span>售价从 <span>1980</span> 起</p>
+    <p class="product_color"><span>颜色：</span><em>{{color}}</em></p>
     <div class="product_radio">
-      <radioSel :selections="productList"></radioSel>
+      <radioSel :selections="productList"  @on-change="getProduct"></radioSel>
     </div>
     <div class="product_address">
       <span>配送至</span>
       <div>
-        <selection :selection="addresslist"></selection>
+        <selection :selection="addresslist" @on-change="getAddress"></selection>
       </div>
       <span>现在有货</span>
     </div>
@@ -41,10 +41,14 @@
     export default{
         data(){
             return {
+              color:"象牙白",
+              price:"2,180",
+              address:{},
+              productSel:{},
               productList:[
-                {id:"01",name:"￥2，180"},
-                {id:"02",name:"￥1，980"},
-                {id:"03",name:"来自一个卖家"}
+                {id:"01",name:"HBH10C/3L",value:"2,180",color:"象牙白"},
+                {id:"02",name:"HCH10C/5L",value:"1,980",color:"情人粉"},
+                {id:"03",name:"HBH08C/3L",value:"2,150",color:"天空蓝"}
               ],
               addresslist:[
                 {id:"01",name:"广州市天河区同福路"},
@@ -55,6 +59,25 @@
               ]
             }
         },
+  methods:{
+    getProduct(data){
+      this.productSel=data;
+      this.color=data.color;
+      this.price=data.value;
+      this.postInfo()
+    },
+    getAddress(data){
+      this.address=data;
+      this.postInfo()
+    },
+    postInfo(){
+      let parms={
+        address:this.address,
+        product:this.productSel
+      }
+    this.$emit("on-change",parms)
+    }
+  },
   components:{
     radioSel,selection
   }

@@ -70,6 +70,8 @@
     border: 1px solid #bbbbbb;
   }
   .leftNav li{
+    height: 16px;
+    line-height: 16px;
     margin-bottom: 12px;
     text-align: left;
   }

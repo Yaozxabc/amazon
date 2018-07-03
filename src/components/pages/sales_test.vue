@@ -104,8 +104,7 @@
         radioList:[
           {name:"菜鸟",type:"easy",value:"0"},
           {name:"小鸟",type:"base",value:"1"},
-          {name:"大鸟",type:"middle",value:"2"},
-          {name:"老鸟",type:"difficult",value:"3"},
+          {name:"大鸟",type:"middle",value:"2"}
         ],
         multiList:[
           {name:"小码",type:"easy",value:"50"},
