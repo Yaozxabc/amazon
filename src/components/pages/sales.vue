@@ -151,6 +151,9 @@
   components:{
     selection,radioSel,multiSel,Number,Popup,banks,showInfo,productImg,productSel
   },
+  computed:{
+
+  },
   methods:{
     tel(data){
       let i=0;

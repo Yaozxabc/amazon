@@ -46,9 +46,9 @@
               address:{},
               productSel:{},
               productList:[
-                {id:"01",name:"HBH10C/3L",value:"2,180",color:"象牙白"},
-                {id:"02",name:"HCH10C/5L",value:"1,980",color:"情人粉"},
-                {id:"03",name:"HBH08C/3L",value:"2,150",color:"天空蓝"}
+                {id:"01",name:"HBH10C/3L",value:"2180",color:"象牙白"},
+                {id:"02",name:"HCH10C/5L",value:"1980",color:"情人粉"},
+                {id:"03",name:"HBH08C/3L",value:"2150",color:"天空蓝"}
               ],
               addresslist:[
                 {id:"01",name:"广州市天河区同福路"},
@@ -63,7 +63,7 @@
     getProduct(data){
       this.productSel=data;
       this.color=data.color;
-      this.price=data.value;
+      this.price=this.format_number(data.value);
       this.postInfo()
     },
     getAddress(data){
@@ -76,6 +76,13 @@
         product:this.productSel
       }
     this.$emit("on-change",parms)
+    },
+    format_number(n){
+      var b=parseInt(n).toString();
+      var len=b.length;
+      if(len<=3){return b;}
+      var r=len%3;
+      return r>0?b.slice(0,r)+","+b.slice(r,len).match(/\d{3}/g).join(","):b.slice(r,len).match(/\d{3}/g).join(",");
     }
   },
   components:{
