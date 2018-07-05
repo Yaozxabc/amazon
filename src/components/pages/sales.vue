@@ -55,7 +55,7 @@
       <banks :bankList="banksList" @on-change="toChooseBank"></banks>
       <p class="clearfix mybtn">
       <el-button type="success" @click="isShowSure">提交</el-button>
-      <el-button type="info">取消</el-button>
+      <el-button type="info" @click="noShowPopup">取消</el-button>
       </p>
     </Popup>
     <showInfo :isaShow="isSure" @on-close="closeSure" @on-change="toDetail"></showInfo>

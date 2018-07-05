@@ -69,6 +69,7 @@
   background: darkgrey;
 }
   .selectList{
+    z-index: 2;
     width: 100%;
     position: absolute;
     top: 100%;

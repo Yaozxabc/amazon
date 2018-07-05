@@ -119,9 +119,12 @@
     top: 0;
   }
   .big_warp{
-    overflow-y: hidden;
+    max-width: 1180px;
+    margin: 0 auto;
+    overflow-x: hidden;
   }
   .content{
+    max-width: 1180px;
     margin-top: 20px;
     overflow-x: hidden
   }

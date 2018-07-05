@@ -102,7 +102,8 @@
   width: 100%;
 }
   .Imglist li{
-    width: 1070px;
+    max-width: 1070px;
+    min-width: 955px;
     height: 304px;
   }
   .Imglist a{

@@ -61,18 +61,18 @@
 
 <style scoped>
 .siderList{
-  width: 250px;
+  width: 180px;
 }
 .sider_hd{
   width: 100%;
 }
 .sider_hd img{
-  width: 220px;
-  height: 188px;
+  width: 180px;
+  height: 154px;
 }
   .siderList li{
-    width: 220px;
-    height: 110px;
+    width: 180px;
+    height: 90px;
     margin-top: 5px;
   }
   .siderList img{
@@ -81,10 +81,14 @@
   .listWarp{
     position: relative;
   }
+  .listWarp a{
+
+  }
   .more{
     position: absolute;
     left: 20%;
-    bottom: 15px;
+    bottom: 10px;
+    color: #000;
   }
   .booklist li{
     margin-top: 10px;

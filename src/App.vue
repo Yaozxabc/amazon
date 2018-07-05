@@ -4,11 +4,11 @@
      <div class="bananer_top">
        <a href="javascript:">六一儿童节促销礼品,下单立即减100元</a></div>
      <div class="search_top clearfix">
-       <el-col :span="3" class="logo">
+       <div class="logo">
          <router-link :to="{path:'/'}" class="shop_logo"><h1>amazon.cn</h1></router-link>
          <a href="javascript:" class="user_test"><span class="">免费试享prime</span></a>
-         </el-col>
-       <el-col :span="14" class="search">
+         </div>
+       <div class="search">
          <div class="search_warp">
          <select name="" id="itemlist" class="itemlist">
            <option value="全部商品" selected>全部商品</option>
@@ -16,10 +16,10 @@
          <input type="text"/>
          <a href="javascript:"><i class="iconfont icon-search"></i></a>
        </div>
-       </el-col>
-       <el-col :span="6" >
+       </div>
+       <div>
          <div class="search_bananer"></div>
-       </el-col>
+       </div>
      </div>
      <nav class="clearfix">
       <div class="showAll" >
@@ -189,6 +189,7 @@ export default {
 
 <style>
 #app {
+  min-width: 1180px;;
   width: 100%;
   margin: 0 auto;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -227,18 +228,19 @@ export default {
     bottom: 2px;
     right: 5px;
   }
+  .search_top{
+    overflow: visible;
+  }
   .search{
-    margin-left: 26px;
-    padding: 10px 0;
+    padding: 10px 0 10px 26px;
     float: left;
     line-height: 60px;
     box-sizing: border-box;
-
   }
   .search_warp{
-    width: 825px;
+   width: auto;
     height: 35px;
-
+    white-space: nowrap;
   }
   .itemlist{
     width: 83px;
@@ -251,9 +253,10 @@ export default {
     font-size: 15px;
   }
   .search input{
-    width: 619px;
+    width: auto;
+    max-width: 619px;
+    min-width: 400px;
     height: 35px;
-    min-width: 200px;
     box-sizing: border-box;
     float: left;
   }
@@ -272,7 +275,7 @@ export default {
   .search_bananer{
     margin-top: 8px;
     float: right;
-    width: 308px;
+    max-width: 308px;
     min-width: 200px;
     height: 38px;
     background: #4dd7e4;
@@ -280,6 +283,7 @@ export default {
   nav {
     position:relative;
     width: 100%;
+    min-width: 1180px;
     height: 40px;
     background-image: linear-gradient(#fafafa 0,#efefef 100%);
   }

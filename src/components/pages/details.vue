@@ -32,5 +32,8 @@
 
 
 <style>
+.el-container{
+  max-width: 1366px;
 
+}
 </style>

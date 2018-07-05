@@ -40,12 +40,14 @@
 
 <style scoped>
   .hotProduct{
+    max-width: 760px;
     float: right;
     margin-right: 10px;
   }
   .hotProduct li {
     float: left;
-    width: 293px;
+    max-width: 254px;
+    min-width: 244px;
     height: 158px;
     box-sizing: border-box;
     padding: 0 14px;
@@ -104,13 +106,13 @@
     font-size: 13px;
   }
   .product_img{
-    width: 162px;
-    height: 134px;
+    max-width: 120px;
+    height: 110px;
     float: left;
     text-align: center;
   }
   .product_img img{
-    max-width: 162px;
-    max-height: 134px;
+    max-width: 100%;
+    max-height: 110px;
   }
 </style>

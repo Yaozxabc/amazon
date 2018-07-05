@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="box">
   <div class="big_product clearfix" :style="{background:Info.bg}">
     <router-link :to="{path:Info.big_product.path}">
       <img :src="Info.big_product.ImgSrc" alt="Info.big_product.name"/>
@@ -62,13 +62,19 @@
 
 
 <style scoped>
+  .box{
+    max-width: 1153px;
+    min-width: 980px;
+
+  }
 .big_product{
   float: left;
-  width: 210px;
+  width: 19.2%;
+  max-width: 210px;
   height: 460px;
 }
 .big_product div{
-  width: 210px;
+  max-width: 210px;
   height: 140px;
   box-sizing: border-box;
   padding: 20px;
@@ -98,11 +104,13 @@
 }
   .small_product{
     float: left;
-    width: 430px;
-    height: 460px;
+    width: 39.3%;
+    max-width: 460px;
+    min-height: 460px;
   }
   .small_product li{
-    width: 212px;
+    width: 50%;
+    max-width: 225px;
     height: 230px;
     float: left;
     padding: 0 14px;
@@ -119,9 +127,9 @@
 .small_product h6{
   height: 26px;
   color: #4a3d3b;
+  margin-bottom: 20px;
 }
   .small_product span{
-    margin-top: 10px;
     color: #f12200;
   }
 .small_product {
@@ -131,8 +139,9 @@
   .middle_product{
     background: #f5f5f5;
     float: left;
-    width: 300px;
-    height: 460px;
+    width: 27.5%;
+    max-width:318px;
+    height: 405px;
     color: #000000;
   }
   .middle_product li:first-child{
@@ -143,8 +152,12 @@
     width: 100%;
     height: 230px;
     text-align: left;
-    padding: 34px 16px;
     box-sizing: border-box;
+    background: #e1ecf0;
+  }
+  .middle_product li a{
+    padding: 34px 16px;
+    display: block;
   }
   .middle_product h5{
     font-family: "siyuan_black";
@@ -179,7 +192,8 @@
   }
   .brand{
     float: left;
-    width: 144px;
+    width: 13%;
+    max-width: 149px;
     height: 460px;
 
   }
