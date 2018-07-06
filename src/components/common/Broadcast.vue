@@ -94,7 +94,7 @@
   }
 .broadBox{
   position: relative;
-  width: 1090px;
+  width: 955px;
   height: 304px;
   overflow: hidden;
 }

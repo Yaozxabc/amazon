@@ -187,9 +187,9 @@ export default {
   }
 </script>
 
-<style>
+<style scoped>
 #app {
-  min-width: 1180px;;
+  max-width: 1180px;;
   width: 100%;
   margin: 0 auto;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

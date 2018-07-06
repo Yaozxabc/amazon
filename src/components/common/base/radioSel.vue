@@ -40,7 +40,7 @@
 }
   .SelGroup li{
     float: left;
-    width: 130px;
+    width: 110px;
     height: 48px;
     margin-right: 12px;;
     border-radius: 4px;

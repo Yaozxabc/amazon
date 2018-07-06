@@ -1,5 +1,5 @@
 <template>
-<div class="box">
+<div class="abox">
   <div class="big_product clearfix" :style="{background:Info.bg}">
     <router-link :to="{path:Info.big_product.path}">
       <img :src="Info.big_product.ImgSrc" alt="Info.big_product.name"/>
@@ -62,7 +62,7 @@
 
 
 <style scoped>
-  .box{
+  .abox{
     max-width: 1153px;
     min-width: 980px;
 
@@ -79,6 +79,9 @@
   box-sizing: border-box;
   padding: 20px;
 
+}
+.big_product img{
+  width: 100%;
 }
 .big_product h5{
   color: #ffffff;
@@ -158,6 +161,9 @@
   .middle_product li a{
     padding: 34px 16px;
     display: block;
+  }
+  .middle_product img{
+    max-width: 120px;
   }
   .middle_product h5{
     font-family: "siyuan_black";

@@ -4,11 +4,12 @@ import index from '@/components/pages/index'
 import details from '@/components/pages/details'
 import sales from '@/components/pages/sales'
 import orderlist from '@/components/pages/orderlist'
+import productlist from '@/components/pages/productlist'
 import page01 from '@/components/pages/details/page01'
 import page02 from '@/components/pages/details/page02'
 import page03 from '@/components/pages/details/page03'
 import page04 from '@/components/pages/details/page04'
-import abc from '@/components/test/children'
+
 
 
 Vue.use(Router)
@@ -51,14 +52,14 @@ export default new Router({
       component:sales
     },
     {
-      path:'/abc',
-      name:'abc',
-      component:abc
-    },
-    {
       path:'/orderlist',
       name:"orderlist",
       component:orderlist
+    },
+    {
+      path:'/productlist',
+      name:"productlist",
+      component:productlist
     }
   ]
 })

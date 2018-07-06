@@ -114,11 +114,15 @@
   .product_show{
     float: left;
     position: relative;
-    width: 420px;
-    height: 420px;
+    width: 380px;
+    height: 380px;
     padding: 7px;
 
   }
+.product_show img{
+  width: 380px;
+  height: 380px;
+}
   .product_show span{
     margin-top: 20px;;
   }
@@ -126,8 +130,8 @@
     position: absolute;
     left: 7px;
     top: 7px;
-    width: 210px;
-    height: 210px;
+    width: 190px;
+    height: 190px;
     background: darkcyan;
     opacity: .3;
     z-index: 2;

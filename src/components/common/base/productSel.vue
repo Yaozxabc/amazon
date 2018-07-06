@@ -94,7 +94,7 @@
 
 <style scoped>
   .SelInfo{text-align: left;font-size: 14px;color: #555555;}
-  .product_hd{width: 440px;height: 84px;font-size: 18px;line-height: 24px;color: #111111}
+  .product_hd{width: 400px;height: 84px;font-size: 18px;line-height: 24px;color: #111111}
   .product_name{color: #0066cb;font-size: 14px;line-height: 18px;}
   .product_comment{}
   .product_comment span{color: #0066cb;font-size: 14px;margin:0 8px;}
