@@ -62,6 +62,10 @@ components:{
 
 
 <style scoped>
+  .SureInfo{
+    width: 1366px;
+    height: 200%;
+  }
   .SureInfo .btn{
     margin-top: 20px;
   }

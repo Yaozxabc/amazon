@@ -1,7 +1,7 @@
 <template>
 <div class="abox">
   <div class="big_product clearfix" :style="{background:Info.bg}">
-    <router-link :to="{path:Info.big_product.path}">
+    <router-link :to="{path:'/productlist'}">
       <img :src="Info.big_product.ImgSrc" alt="Info.big_product.name"/>
       <div>
         <h5>{{Info.big_product.name}}</h5>

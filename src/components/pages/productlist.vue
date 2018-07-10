@@ -9,7 +9,9 @@
     <el-col :span="4">
       <productScreen></productScreen>
     </el-col>
-    <el-col :span="20">products</el-col>
+    <el-col :span="20">
+      <productFull></productFull>
+    </el-col>
   </el-container>
 
 </div>
@@ -17,6 +19,7 @@
 
 <script type="text/ecmascript-6">
   import productScreen from '@/components/common/base/productScreen'
+  import productFull from '@/components/common/base/productFull'
     export default{
         data(){
             return {
@@ -44,7 +47,7 @@
             }
         },
   components:{
-    productScreen
+    productScreen,productFull
   }
     }
 </script>

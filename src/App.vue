@@ -188,6 +188,9 @@ export default {
 </script>
 
 <style scoped>
+  .el-header{
+    box-sizing: border-box;
+  }
 #app {
   max-width: 1180px;;
   width: 100%;
@@ -283,7 +286,6 @@ export default {
   nav {
     position:relative;
     width: 100%;
-    min-width: 1180px;
     height: 40px;
     background-image: linear-gradient(#fafafa 0,#efefef 100%);
   }

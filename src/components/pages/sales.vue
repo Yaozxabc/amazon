@@ -1,4 +1,5 @@
 <template>
+  <div>
   <el-row  :gutter="20" class="box_warp">
     <el-col :span="10">
       <div>
@@ -29,37 +30,38 @@
         <el-button class="mybtn" type="info"  >账户充值</el-button>
       </div>
     </el-col>
-    <Popup :isShow="isPopup" @on-close="noShowPopup">
-      <table class="Product-table" width="300" border="1" cellspacing="1" cellpadding="1">
-        <tbody>
-        <tr class="title">
-          <td>序号</td>
-          <td>产品</td>
-          <td>数量</td>
-          <td>单价</td>
-          <td>总价</td>
-        </tr>
-        <tr>
-          <td>01</td>
-          <td>{{ buyType.name }}</td>
-          <td>{{ buyCount }}</td>
-          <td>{{buyType.value}}</td>
-          <td>{{buyType.value*buyCount}}</td>
-        </tr>
-        <tr>
-          <td>地址：</td>
-          <td colspan="3">{{address.name}}</td>
-        </tr>
-        </tbody>
-      </table>
-      <banks :bankList="banksList" @on-change="toChooseBank"></banks>
-      <p class="clearfix mybtn">
+  </el-row>
+  <Popup :isShow="isPopup" @on-close="noShowPopup">
+    <table class="Product-table" width="300" border="1" cellspacing="1" cellpadding="1">
+      <tbody>
+      <tr class="title">
+        <td>序号</td>
+        <td>产品</td>
+        <td>数量</td>
+        <td>单价</td>
+        <td>总价</td>
+      </tr>
+      <tr>
+        <td>01</td>
+        <td>{{ buyType.name }}</td>
+        <td>{{ buyCount }}</td>
+        <td>{{buyType.value}}</td>
+        <td>{{buyType.value*buyCount}}</td>
+      </tr>
+      <tr>
+        <td>地址：</td>
+        <td colspan="3">{{address.name}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <banks :bankList="banksList" @on-change="toChooseBank"></banks>
+    <p class="clearfix mybtn">
       <el-button type="success" @click="isShowSure">提交</el-button>
       <el-button type="info" @click="noShowPopup">取消</el-button>
-      </p>
-    </Popup>
-    <showInfo :isaShow="isSure" @on-close="closeSure" @on-change="toDetail"></showInfo>
-  </el-row>
+    </p>
+  </Popup>
+  <showInfo :isaShow="isSure" @on-close="closeSure" @on-change="toDetail"></showInfo>
+</div>
 </template>
 
 <script type="text/ecmascript-6">
