@@ -3,7 +3,11 @@
   <div class="hotBananer">
     <h3></h3>
     <ul>
-      <li v-for="baner in hotBanerlist"><img :src="baner.src" :alt="baner.value"/></li>
+      <li v-for="baner in hotBanerlist">
+        <router-link :to="{path:'/sales'}">
+        <img :src="baner.src" :alt="baner.value"/>
+        </router-link>
+      </li>
     </ul>
   </div>
   <div class="hotSize clearfix">

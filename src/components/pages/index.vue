@@ -1,14 +1,16 @@
 <template>
   <div class="big_warp">
-    <el-container>
+    <el-container  class="overAuto">
         <el-col :span="4" class="leftsider">
+          <keep-alive>
           <leftNav :isShow="isShow" class="leftnav" :pathType="pathType"></leftNav>
+          </keep-alive>
         </el-col>
         <el-col :span="20">
           <BroadList :slides="ImgList" :inv="invtime"></BroadList>
         </el-col>
     </el-container>
-    <el-container  class="content" >
+    <el-container  class="content">
       <el-row :gutter="20">
        <el-col :span="20">
          <section class="clearfix" >
@@ -110,6 +112,9 @@
 
 
 <style scoped>
+  .overAuto{
+    overflow: visible;
+  }
   .leftsider{
     position: relative;
   }

@@ -101,15 +101,17 @@
     transition: all .5s;
   }
   .slides_move-enter{
-    transform: translateX(1070px);
+    opacity: 1;
+    /*transform: translateX(1070px);*/
   }
   .slides_move_old-leave-active{
     transition: all .5s;
-    transform: translateX(-1070px);
+    opacity: 0;
+    /*transform: translateX(-1070px);*/
   }
 .broadBox{
   position: relative;
-  width: 955px;
+  width: 970px;
   height: 304px;
   overflow: hidden;
 }
@@ -117,8 +119,7 @@
   width: 100%;
 }
   .Imglist li{
-    max-width: 1070px;
-    min-width: 955px;
+    width: 100%;
     height: 304px;
   }
   .Imglist a{
