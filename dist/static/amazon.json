@@ -1,0 +1,25 @@
+{
+  "name":"多大的",
+  "username": "MR.dao",
+  "alllist":[
+    [
+      {"name":"红酒","min":"38.00","max":"199.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/01.jpg"},
+      {"name":"维生素","min":"58.00","max":"439.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/02.jpg"},
+      {"name":"Kinddle","min":"78.00","max":"139.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/03.jpg"},
+      {"name":"运动鞋","min":"98.00","max":"209.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/04.jpg"}
+  ],
+    [
+      {"name":"洗衣液","min":"238.00","max":"249.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/05.png"},
+      {"name":"一千零一夜","min":"338.00","max":"224.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/06.png"},
+      {"name":"洁厕灵","min":"388.00","max":"922.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/07.png"},
+      {"name":"书包","min":"31.00","max":"229.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/08.png"}
+  ],
+    [
+      {"name":"纸巾","min":"28.00","max":"959.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/09.png"},
+      {"name":"内裤","min":"32.00","max":"399.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/10.png"},
+      {"name":"奶粉","min":"68.00","max":"199.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/11.png"},
+      {"name":"T桖","min":"78.00","max":"299.00","overtime":"240000","text":"[热卖精品，金奖aoc，下单送精品啤酒杯]","count":23,"star":5,"imgSrc":"/static/seconds/12.png"}
+  ]
+
+]
+}
