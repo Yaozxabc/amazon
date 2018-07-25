@@ -80,7 +80,7 @@
           this.ErrorText="用户名或者密码错误"
         }else{
           this.ErrorText=""
-          axios.post('http://rapapi.org/mockjsdata/35319/productlist',{id:"01",name:"hello"}).
+          this.$http.get('./static/amazon.json').
             then(response=>{
               this.$emit("has-log",response.data)
             },(error)=>{
@@ -107,7 +107,7 @@
     width: 80px;
     height: 26px;
     line-height: 26px;
-    text-align: left;
+    text-align: center;
   }
   .userForm input{
     float: left;

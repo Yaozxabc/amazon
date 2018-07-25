@@ -12,7 +12,7 @@
         <p class="progress"></p>
         <p class="overtime">剩余{{product.overtime}}</p>
         <a href="javascript:" class="name"><span>{{product.text}}</span></a>
-        <p><span class="count">{{product.count}}</span></p>
+        <p><span class="count">￥{{product.count}}</span></p>
         <div class="svg_star"></div>
       </div>
       <button class="toCar">查看优惠</button>
@@ -33,13 +33,16 @@
                 {name:"钙片",min:"18.00",max:"789.00",overtime:"360000",text:"[热卖精品，补充维生素]",count:18,star:5,imgSrc:require("../../assets/images/seconds/02.jpg")},
                 {name:"kindle",min:"88.00",max:"849.00",overtime:"580000",text:"[热卖精品，铜奖aoc，阅读精品]",count:72,star:5,imgSrc:require("../../assets/images/seconds/03.jpg")},
                 {name:"童靴",min:"67.00",max:"759.00",overtime:"340000",text:"[超级热卖，走儿童喜欢的路]",count:41,star:5,imgSrc:require("../../assets/images/seconds/04.jpg")}
-
               ]
+
             }
         },
     methods:{
       tabShow(index){
         this.current=index;
+        this.$http.get('./static/amazon.json').then((response)=>{
+          this.loading_list=response.data.alllist[index]
+        })
       }
     }
     }
@@ -61,7 +64,7 @@
   .price{font-size: 20px;}
   .progress{}
   .overtime{font-size: 14px;margin: 14px 0}
-  .name{color:#0066c0;font-size: 14px;width: 100%;height: 30px;overflow: hidden;display: block}
+  .name{color:#0066c0;font-size: 14px;width: 100%;display: block}
   .svg_star{width: 80px;hight:17px;}
   .count{font-size: 16px;color: red}
   .toCar{margin-top:14px;width: 100%;hight:23px;line-height: 23px;background-image: linear-gradient(#f6dc9a,#f0c455)}

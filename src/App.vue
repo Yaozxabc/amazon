@@ -24,10 +24,10 @@
      <nav class="clearfix">
       <div class="showAll" >
          <span>浏览</span><br/>
-         <strong  >全部商品分类</strong>
+         <router-link :to="{path:'/'}" tag="strong">全部商品分类</router-link>
       </div>
        <ul class="offentlist">
-         <li><a href="javascript:">我的亚马逊</a></li>
+         <li><router-link :to="{path:'/loginPage'}" tag="a">我的亚马逊</router-link></li>
          <li><a href="javascript:">z秒杀</a></li>
          <li><a href="javascript:">礼品卡</a></li>
          <li><a href="javascript:">我要开店</a></li>
@@ -148,7 +148,7 @@
 </template>
 
 <script>
-  import axios from "axios"
+  import bus from "@/assets/scripts/eventbus.js"
   import Popup from '@/components/common/Popup'
   import login from '@/components/common/login'
   import index from '@/components/pages/index'
@@ -162,8 +162,7 @@ export default {
       isShow1: false,
       isShow2: false
     }
-  }
-  ,
+  },
   components:{
    index,login,Popup
   }
@@ -183,6 +182,12 @@ export default {
     quit(){
       return confirm("你确认现在退出么？") ? this.username="": false;
     }
+  },
+  created(){
+    bus.$on('getName',(data)=>{
+      this.username=data.username;
+      $router.push('')
+    })
   }
   }
 </script>

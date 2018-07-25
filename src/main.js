@@ -8,11 +8,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import {Button,Select} from 'element-ui'
 import '@/assets/scripts/reset.css'
 import '@/assets/iconfont/iconfont.css'
+import  axios from 'axios'
 import  _ from 'lodash'
 import  Store from './store'
 import "lib-flexible"
 
 Vue.config.productionTip = false
+Vue.prototype.$http=axios
 Vue.use(ElementUi)
 Vue.use(Button)
 Vue.use(Select)

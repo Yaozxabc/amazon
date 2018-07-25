@@ -5,6 +5,7 @@ import details from '@/components/pages/details'
 import sales from '@/components/pages/sales'
 import orderlist from '@/components/pages/orderlist'
 import productlist from '@/components/pages/productlist'
+import loginPage from '@/components/pages/loginPages'
 import page01 from '@/components/pages/details/page01'
 import page02 from '@/components/pages/details/page02'
 import page03 from '@/components/pages/details/page03'
@@ -17,6 +18,11 @@ Vue.use(Router)
 export default new Router({
   //mode:"history",
   routes: [
+    {
+      path: '/loginPage',
+      name: 'loginPage',
+      component: loginPage
+    },
     {
       path: '/',
       name: 'index',
