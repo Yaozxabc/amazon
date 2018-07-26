@@ -7,89 +7,25 @@
         <div class="arrow arrow_left"></div>
       </div>
       <ul>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
+        <li v-for="product in product1s">
+          <router-link :to="{path:'/productlist'}">
+            <img :src="product.src" :alt="product.value" :title="product.value"/>
+            <p class="info" :title="product.value">{{product.value}}</p>
+            <p class="price">￥{{product.min}} - ￥{{product.max}}</p>
             <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
     <div class="fineProducts ">
       <ul>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
+        <li v-for="product in product2s">
+          <router-link :to="{path:'/productlist'}">
+            <img :src="product.src" :alt="product.value" :title="product.value"/>
+            <p class="info" :title="product.value">{{product.value}}</p>
+            <p class="price">￥{{product.min}} - ￥{{product.max}}</p>
             <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="../../assets/images/fineQ/01.png" alt=""/>
-            <p class="info">Prismacolor Premier软芯彩色铅笔 150色</p>
-            <p class="price">￥511.53 - ￥1,288.21</p>
-            <button>立即购买</button>
-          </a>
+          </router-link>
         </li>
       </ul>
       <div class="changed">
@@ -105,7 +41,22 @@
 <script type="text/ecmascript-6">
     export default{
         data(){
-            return {}
+            return {
+              product1s:[
+                {name:'彩色铅笔',value:'Prismacolor 优质软芯彩色铅笔节省20%',src:require('../../assets/images/fineQ/01.png'),max:"2004",min:'475'},
+                {name:'荷兰锅',value:'Lodge 珐琅铸铁椭圆形荷兰锅 白色 7 quart',src:require('../../assets/images/fineQ/02.png'),max:"7398",min:'333'},
+                {name:'纸盒人',value:'【 amazon.co.jp 限定】海洋堂 Revoltech 纸盒人 a...',src:require('../../assets/images/fineQ/03.png'),max:"198",min:'133'},
+                {name:'处理铸铁矩形',value:'Lodge 17.15 X 11.43 cm 1/5.08 cm x 27.94处理铸铁矩形 Grill Press',src:require('../../assets/images/fineQ/04.png'),max:"78",min:'14'},
+                {name:'Champion',value:'Champion|街头经典',src:require('../../assets/images/fineQ/05.png'),max:"988",min:'354'}
+              ],
+              product2s:[
+                {name:'暑期旅行',value:'暑期旅行|潮炸天',src:require('../../assets/images/fineQ/06.png'),max:"7148",min:'624'},
+                {name:'美妆优选',value:'美妆优选|爆款直降7折起',src:require('../../assets/images/fineQ/07.png'),max:"778",min:'324'},
+                {name:'太阳能机器人',value:'OWI 变形太阳能机器人"',src:require('../../assets/images/fineQ/08.png'),max:"988",min:'137'},
+                {name:'德龙除湿',value:'德龙除湿|台风天的克星',src:require('../../assets/images/fineQ/09.png'),max:"758",min:'174'},
+                {name:'潘多拉',value:'Pandora 潘多拉|幸福新品',src:require('../../assets/images/fineQ/10.png'),max:"398",min:'124'}
+              ]
+            }
         }
     }
 </script>
@@ -174,7 +125,13 @@
     width: 100%;
     text-align: left;
     color: #566273;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+  }
+  .info{
+    height: 32px;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    overflow: hidden;
   }
   .price{
     color: orangered;

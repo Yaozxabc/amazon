@@ -2,7 +2,7 @@
   <div class="hotProduct">
     <ul>
       <li v-for="item in hotProduct">
-        <h2> <a href="javascript:">{{item.activeName}}</a>{{item.fixName}}</h2>
+        <h2>  <router-link :to="{path:'/productlist'}">{{item.activeName}}</router-link>{{item.fixName}}</h2>
         <div class="productInfo_warp clearfix">
           <div class="productInfo">
             <h4>限时热门抢购</h4>
@@ -11,9 +11,9 @@
             <a href="javascript:" class="allProduct"><span></span>全部秒杀产品</a>
           </div>
           <div class="product_img">
-            <a  href="javascript:">
+            <router-link :to="{path:'/productlist'}">
               <img :src="item.imgSrc" alt=""/>
-            </a>
+            </router-link>
           </div>
 
         </div>

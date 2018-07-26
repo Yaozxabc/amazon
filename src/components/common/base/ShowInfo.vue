@@ -8,10 +8,10 @@
   </p>
   </Popup>
   <Popup :isShow="isSuccessInfo" @on-close="closeSuccessInfo">
-    支付成功，继续购物请返回
+    支付成功，查看购物清单
   </Popup>
   <Popup :isShow="isErrorInfo" @on-close="closeErrorInfo">
-    支付失败，重新选择银行及支付方式
+    支付失败，查看购物清单
   </Popup>
 </div>
 </template>

@@ -32,13 +32,16 @@
 .myLogin{
   margin: 10px auto;
   width: 300px;
+  min-height: 600px;
 
 }
   .myLogin h2{
-    width: 300px;
-    height: 140px;
+    margin:  0 auto;
+    width: 200px;
+    height: 110px;
     text-indent: -9999px;
-    background: url("../../assets/images/logo2.png");
+    background-image: url("../../assets/images/logo2.png");
+    background-size: 200px 110px;
   }
   .myLogin h3{
     height: 40px;

@@ -14,7 +14,7 @@
         <li v-for="book in navList[nowIndex].children">
           <h4>{{book.title}}</h4>
           <ul class="Navcon">
-            <li v-for="con in book.value">{{con}}</li>
+            <li v-for="con in book.value"><router-link :to="{path:'/details'}" tag="a">{{con}}</router-link> </li>
           </ul>
         </li>
       </ul>
@@ -296,6 +296,11 @@
     float: left;
     margin-right: 10px;
     margin-bottom: 5px;
+  }
+  .Navcon a:hover{
+    font-weight: normal;
+    color: #007aff;
+    font-size: 13px;
   }
   .showNav-enter-active,.showNav-leave-active{
     transition: all .1s;

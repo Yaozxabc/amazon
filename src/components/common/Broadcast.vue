@@ -2,7 +2,7 @@
 <div class="broadBox" @mouseover="stopPlay" @mouseout="autoPlay">
   <ul class="Imglist">
     <li>
-      <a href="javascript:">
+      <router-link :to="{path:'/details'}">
         <div class="spinner" v-show="show">
           <div class="rect1"></div>
           <div class="rect2"></div>
@@ -16,7 +16,7 @@
         <transition name="slides_move_old">
       <img :src='slides[nowIndex].src' v-if="!isShow" :alt='slides[nowIndex].alt'  />
         </transition>
-    </a>
+    </router-link>
     </li>
   </ul>
   <ul class="CricleList">

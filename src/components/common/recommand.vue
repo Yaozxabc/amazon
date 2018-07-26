@@ -7,10 +7,10 @@
       <div class="price">￥{{item.price}}</div>
       <div class="favourable" v-show="item.show"><a href="javascript:">{{item.discount}}</a></div>
       <div class="warp">
-        <a href="javascript:">
+        <router-link :to="{path:'/details'}">
         <h3>{{item.bookLabel}}</h3>
         <div :class="['svg',item.star]"></div>
-        </a>
+        </router-link>
       </div>
     </li>
   </ul>
@@ -53,7 +53,7 @@
     transition: opacity .1s;
     opacity: 0;
     left: -40px;
-    top: -30px;
+    top: -35px;
     width: 160%;
     height: 130%;
     border: 1px solid darkgrey;

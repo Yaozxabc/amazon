@@ -5,9 +5,9 @@
     <li v-for="(item,index) in 3" :class="{active:current===index}" @click="tabShow(index)"><a href="javascript:">正在秒杀</a></li>
   </ul>
   <ul class="loading_list">
-    <li v-for="product in loading_list">
+    <li v-for="product in CurList">
       <div class="productInfo" >
-        <a href="javascript:"><img :src="product.imgSrc" alt="product.name"/></a>
+        <router-link :to="{path:'/details'}"><img :src="product.imgSrc" :alt="product.name"/></router-link>
         <p class="price">￥{{product.min}}—￥{{product.max}}</p>
         <p class="progress"></p>
         <p class="overtime">剩余{{product.overtime}}</p>
@@ -28,6 +28,7 @@
             return {
               nowIndex:0,
               current:0,
+              CurList:[],
               loading_list:[
                 {name:"红酒",min:"38.00",max:"999.00",overtime:"240000",text:"[热卖精品，金奖aoc，下单送精品啤酒杯]",count:23,star:5,imgSrc:require("../../assets/images/seconds/01.jpg")},
                 {name:"钙片",min:"18.00",max:"789.00",overtime:"360000",text:"[热卖精品，补充维生素]",count:18,star:5,imgSrc:require("../../assets/images/seconds/02.jpg")},
@@ -41,9 +42,13 @@
       tabShow(index){
         this.current=index;
         this.$http.get('./static/amazon.json').then((response)=>{
-          this.loading_list=response.data.alllist[index]
+          let arr=response.data.alllist[index]
+          this.CurList=arr;
         })
       }
+    },
+    created(){
+      this.CurList=this.loading_list
     }
     }
 </script>

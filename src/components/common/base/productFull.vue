@@ -13,14 +13,11 @@
   <div class="hotSize clearfix">
     <h3></h3>
     <ul>
-      <li><a href="javascript:">3l以下</a></li>
-      <li><a href="javascript:">4L</a></li>
-      <li><a href="javascript:">5L</a></li>
-      <li><a href="javascript:">6l以上</a></li>
+      <li v-for="(item,index) in menu"><a href="javascript:" @click="curProduct(index)" :class="{active:nowIndex==index}">{{item.value}}</a></li>
     </ul>
   </div>
   <div class="productmenu">
-    <div>显示：1-24条，共732条<span>小家电</span><em>电饭煲</em>
+    <div>显示：1-{{nowList.length}}条，共732条<span>小家电</span><em>电饭煲</em>
     <div class="screen fr">排序<select name="" id="">
       <option value="人气">人气</option>
       <option value="价格">价格</option>
@@ -30,7 +27,7 @@
   </div>
   <div class="productCon">
     <ul>
-      <li v-for="product in productInfoList" >
+      <li v-for="product in nowList" >
         <router-link :to="{path:'/sales'}">
           <img :src="product.src" alt=""/>
         </router-link>
@@ -60,6 +57,15 @@
     export default{
         data(){
             return {
+              nowIndex:0,
+              nowList:[],
+              menu:[
+                {volume:"0",value:'全部'},
+                {volume:"3",value:'3L以下'},
+                {volume:"4",value:'4L'},
+                {volume:"5",value:'5L'},
+                {volume:"6",value:'6L以上'}
+              ],
               hotBanerlist:[
                 {id:"01",src:require("../../../assets/images/productlist/column/bananer/01.png"),value:"虎牌"},
                 {id:"02",src:require("../../../assets/images/productlist/column/bananer/02.png"),value:"象印"},
@@ -67,39 +73,53 @@
                 {id:"04",src:require("../../../assets/images/productlist/column/bananer/04.png"),value:"美的"}
               ],
               productInfoList:[
-                {id:"01",src:require("../../../assets/images/productlist/products/images/Rice(1).png"),price:'1550',discurstion:'Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下',overtime:'24小时内',overCount:2,star:5},
-                {id:"02",src:require("../../../assets/images/productlist/products/images/Rice(2).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:'24小时内',overCount:2,star:5},
-                {id:"03",src:require("../../../assets/images/productlist/products/images/Rice(3).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"04",src:require("../../../assets/images/productlist/products/images/Rice(4).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"05",src:require("../../../assets/images/productlist/products/images/Rice(5).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"06",src:require("../../../assets/images/productlist/products/images/Rice(6).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"07",src:require("../../../assets/images/productlist/products/images/Rice(7).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"08",src:require("../../../assets/images/productlist/products/images/Rice(8).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"09",src:require("../../../assets/images/productlist/products/images/Rice(9).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"10",src:require("../../../assets/images/productlist/products/images/Rice(10).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"11",src:require("../../../assets/images/productlist/products/images/Rice(11).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"12",src:require("../../../assets/images/productlist/products/images/Rice(12).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"13",src:require("../../../assets/images/productlist/products/images/Rice(13).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"14",src:require("../../../assets/images/productlist/products/images/Rice(14).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"15",src:require("../../../assets/images/productlist/products/images/Rice(15).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"16",src:require("../../../assets/images/productlist/products/images/Rice(16).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"17",src:require("../../../assets/images/productlist/products/images/Rice(17).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"18",src:require("../../../assets/images/productlist/products/images/Rice(18).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"19",src:require("../../../assets/images/productlist/products/images/Rice(19).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"20",src:require("../../../assets/images/productlist/products/images/Rice(20).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"21",src:require("../../../assets/images/productlist/products/images/Rice(21).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"22",src:require("../../../assets/images/productlist/products/images/Rice(22).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"23",src:require("../../../assets/images/productlist/products/images/Rice(23).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-                {id:"24",src:require("../../../assets/images/productlist/products/images/Rice(24).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5}
-//                {id:"25",src:require("../../../assets/images/productlist/products/images/Rice(25).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-//                {id:"26",src:require("../../../assets/images/productlist/products/images/Rice(26).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-//                {id:"27",src:require("../../../assets/images/productlist/products/images/Rice(27).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-//                {id:"28",src:require("../../../assets/images/productlist/products/images/Rice(28).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-//                {id:"29",src:require("../../../assets/images/productlist/products/images/Rice(29).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5},
-//                {id:"30",src:require("../../../assets/images/productlist/products/images/Rice(30).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5}
+                {id:"01",src:require("../../../assets/images/productlist/products/images/Rice(1).png"),price:'1550',discurstion:'Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下',overtime:'24小时内',overCount:2,star:5,volume:"4",type:''},
+                {id:"02",src:require("../../../assets/images/productlist/products/images/Rice(2).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:'24小时内',overCount:2,star:5,volume:"3",type:''},
+                {id:"03",src:require("../../../assets/images/productlist/products/images/Rice(3).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+                {id:"04",src:require("../../../assets/images/productlist/products/images/Rice(4).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"3",type:''},
+                {id:"05",src:require("../../../assets/images/productlist/products/images/Rice(5).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+                {id:"06",src:require("../../../assets/images/productlist/products/images/Rice(6).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"5",type:''},
+                {id:"07",src:require("../../../assets/images/productlist/products/images/Rice(7).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"5",type:''},
+                {id:"08",src:require("../../../assets/images/productlist/products/images/Rice(8).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+                {id:"09",src:require("../../../assets/images/productlist/products/images/Rice(9).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"5",type:''},
+                {id:"10",src:require("../../../assets/images/productlist/products/images/Rice(10).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"3",type:''},
+                {id:"11",src:require("../../../assets/images/productlist/products/images/Rice(11).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"6",type:''},
+                {id:"12",src:require("../../../assets/images/productlist/products/images/Rice(12).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"3",type:''},
+                {id:"13",src:require("../../../assets/images/productlist/products/images/Rice(13).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+                {id:"14",src:require("../../../assets/images/productlist/products/images/Rice(14).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"5",type:''},
+                {id:"15",src:require("../../../assets/images/productlist/products/images/Rice(15).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"6",type:''},
+                {id:"16",src:require("../../../assets/images/productlist/products/images/Rice(16).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+                {id:"17",src:require("../../../assets/images/productlist/products/images/Rice(17).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"3",type:''},
+                {id:"18",src:require("../../../assets/images/productlist/products/images/Rice(18).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"5",type:''},
+                {id:"19",src:require("../../../assets/images/productlist/products/images/Rice(19).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"5",type:''},
+                {id:"20",src:require("../../../assets/images/productlist/products/images/Rice(20).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"5",type:''},
+                {id:"21",src:require("../../../assets/images/productlist/products/images/Rice(21).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+                {id:"22",src:require("../../../assets/images/productlist/products/images/Rice(22).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"3",type:''},
+                {id:"23",src:require("../../../assets/images/productlist/products/images/Rice(23).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"3",type:''},
+                {id:"24",src:require("../../../assets/images/productlist/products/images/Rice(24).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''}
+//                {id:"25",src:require("../../../assets/images/productlist/products/images/Rice(25).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+//                {id:"26",src:require("../../../assets/images/productlist/products/images/Rice(26).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+//                {id:"27",src:require("../../../assets/images/productlist/products/images/Rice(27).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+//                {id:"28",src:require("../../../assets/images/productlist/products/images/Rice(28).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+//                {id:"29",src:require("../../../assets/images/productlist/products/images/Rice(29).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''},
+//                {id:"30",src:require("../../../assets/images/productlist/products/images/Rice(30).png"),price:'1550',discurstion:"Panasonic 松下 IH电磁加热电饭煲 SR-ANG181(触屏操控 国标5升对应日标1.8L)Panasonic 松下",overtime:"24小时内",overCount:2,star:5,volume:"4",type:''}
               ]
             }
+        },
+    methods:{
+      curProduct(index){
+        this.nowIndex=index;
+        let product=this.menu[index].volume;
+        if(product==0){
+          this.nowList=this.productInfoList;
+        }else{
+          this.nowList= _.filter(this.productInfoList,{volume:product})
         }
+      }
+    },
+    mounted(){
+      this.nowList=this.productInfoList;
+    }
     }
 </script>
 
@@ -146,9 +166,10 @@
     line-height: 50px;
     border: 1px solid #e1e3e5;
     margin-right: 20px;
+    margin-bottom: 5px;
   }
-  .hotSize li:hover,.hotSize .active{
-    border-color: orangered;
+  .hotSize a:hover,.hotSize .active{
+    border: 1px solid orangered;
     color: orangered;
   }
   .hotSize a{

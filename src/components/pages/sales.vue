@@ -61,7 +61,8 @@
     </p>
   </Popup>
   <showInfo :isaShow="isSure" @on-close="closeSure" @on-change="toDetail"></showInfo>
-</div>
+    <recommand></recommand>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -73,6 +74,7 @@
   import showInfo from '@/components/common/base/ShowInfo'
   import Number from '@/components/common/base/counterNumber'
   import Popup from '@/components/common/Popup'
+  import recommand from '@/components/common/recommand'
   import banks from '@/components/common/BanksGroup'
   import axios from 'axios'
     export default{
@@ -151,7 +153,7 @@
       }
     },
   components:{
-    selection,radioSel,multiSel,Number,Popup,banks,showInfo,productImg,productSel
+    selection,radioSel,multiSel,Number,Popup,banks,showInfo,productImg,productSel,recommand
   },
   computed:{
 

@@ -28,7 +28,7 @@
       </div>
        <ul class="offentlist">
          <li><router-link :to="{path:'/loginPage'}" tag="a">我的亚马逊</router-link></li>
-         <li><a href="javascript:">z秒杀</a></li>
+         <li><router-link :to="{path:'/'}" tag="a">首页</router-link></li>
          <li><a href="javascript:">礼品卡</a></li>
          <li><a href="javascript:">我要开店</a></li>
          <li><a href="javascript:">海外购</a></li>
@@ -197,7 +197,8 @@ export default {
     box-sizing: border-box;
   }
 #app {
-  max-width: 1180px;;
+  min-width: 1180px;
+  max-width: 1180px;
   width: 100%;
   margin: 0 auto;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -365,6 +366,7 @@ export default {
   }
 .main{
   overflow-x: hidden;
+  overflow-y: hidden;
   width: 100%;
   margin: 0 auto;
   min-height: 400px;
