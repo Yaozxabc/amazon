@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      <Loading v-show="loading" @onClose="loaded"></Loading>
    <el-header>
      <div class="bananer_top">
        <a href="javascript:">六一儿童节促销礼品,下单立即减100元</a></div>
@@ -157,6 +158,7 @@ export default {
   name: 'App',
   data(){
     return {
+      loading:true,
       username:"",
       isShow0: false,
       isShow1: false,
@@ -165,10 +167,8 @@ export default {
   },
   components:{
    index,login,Popup
-  }
-  ,
+  },
   methods:{
-
     showInfo(attr){
       this[attr] = true;
     },
@@ -181,6 +181,9 @@ export default {
     },
     quit(){
       return confirm("你确认现在退出么？") ? this.username="": false;
+    },
+    loaded(){
+      this.loading=false;
     }
   },
   created(){
@@ -188,6 +191,7 @@ export default {
       this.username=data.username;
       $router.push('')
     })
+
   }
   }
 </script>
@@ -197,6 +201,7 @@ export default {
     box-sizing: border-box;
   }
 #app {
+  overflow: hidden;
   min-width: 1180px;
   max-width: 1180px;
   width: 100%;

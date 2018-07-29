@@ -12,12 +12,14 @@ import  axios from 'axios'
 import  _ from 'lodash'
 import  Store from './store'
 import "lib-flexible"
+import loading from './components/common/loading'
 
 Vue.config.productionTip = false
 Vue.prototype.$http=axios
 Vue.use(ElementUi)
 Vue.use(Button)
 Vue.use(Select)
+Vue.use(loading)
 
 /* eslint-disable no-new */
 new Vue({

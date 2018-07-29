@@ -17,6 +17,9 @@ Vue.use(Router)
 
 export default new Router({
   //mode:"history",
+  scrollBehavior(to,from){
+    return{y:0}
+    },
   routes: [
     {
       path: '/loginPage',
