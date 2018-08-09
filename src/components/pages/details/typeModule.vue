@@ -2,7 +2,7 @@
 <div class="abox">
   <div class="big_product clearfix" :style="{background:Info.bg}">
     <router-link :to="{path:'/productlist'}">
-      <img :src="Info.big_product.ImgSrc" alt="Info.big_product.name"/>
+      <img v-lazy="Info.big_product.ImgSrc" alt="Info.big_product.name"/>
       <div>
         <h5>{{Info.big_product.name}}</h5>
         <p>{{Info.big_product.name}} <br/>{{Info.big_product.price}}元起</p>
@@ -14,7 +14,7 @@
     <ul>
       <li v-for="item in Info.small_product">
         <router-link :to="{path:item.path}">
-          <img :src="item.ImgSrc" alt="item.name"/>
+          <img v-lazy="item.ImgSrc" alt="item.name"/>
           <h6>{{item.describe}}</h6>
           <span>￥{{item.min}}-{{item.max}}</span>
       </router-link>
@@ -31,14 +31,14 @@
           <strong>{{item.price}}元起</strong>
           <span>查看促销</span>
         </div>
-        <img :src="item.ImgSrc" alt="item.name"/>
+        <img v-lazy="item.ImgSrc" alt="item.name"/>
       </router-link>
       </li>
     </ul>
   </div>
   <div class="brand">
     <ul>
-      <li v-for="item in Info.brand"><img :src="item.imgSrc" alt="item.name"/><p>{{item.name}}</p></li>
+      <li v-for="item in Info.brand"><img v-lazy="item.imgSrc" alt="item.name"/><p>{{item.name}}</p></li>
     </ul>
   </div>
 </div>

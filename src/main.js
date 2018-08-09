@@ -13,10 +13,14 @@ import  _ from 'lodash'
 import  Store from './store'
 import "lib-flexible"
 import loading from './components/common/loading'
+import Vuelazyload from 'vue-lazyload'
 
 Vue.config.productionTip = false
 Vue.prototype.$http=axios
 Vue.use(ElementUi)
+Vue.use(Vuelazyload,{
+  loading:require('@/assets/images/loading.gif')
+})
 Vue.use(Button)
 Vue.use(Select)
 Vue.use(loading)

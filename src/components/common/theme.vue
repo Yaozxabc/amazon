@@ -18,7 +18,7 @@
           <a href="javascript:" class="more">查看更多</a>
         </div>
         <div class="brand_show">
-          <img :src="item.src" alt="item.name"/>
+          <img v-lazy="item.src" alt="item.name"/>
   </div>
       </li>
       <li :class="['lastLi',themeInfo.content.firstRow.lastLi.color]" >
@@ -38,7 +38,7 @@
           <a href="javascript:" class="more">查看更多</a>
         </div>
         <div class="brand_show">
-          <img :src="item.src" alt="item.name"/>
+          <img v-lazy="item.src" alt="item.name"/>
   </div>
       </li>
       <li :class="['lastLi',themeInfo.content.secondRow.lastLi.color]" >

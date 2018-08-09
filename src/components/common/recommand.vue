@@ -3,7 +3,7 @@
   <h2><i class="iconfont icon-star"></i>推荐与您相关</h2>
   <ul>
     <li v-for="item in recommandlist">
-    <img :src="item.imgSrc" alt="item.name"/>
+    <img v-lazy="item.imgSrc" :alt="item.name"/>
       <div class="price">￥{{item.price}}</div>
       <div class="favourable" v-show="item.show"><a href="javascript:">{{item.discount}}</a></div>
       <div class="warp">

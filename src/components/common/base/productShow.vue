@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="sImg_list">
-      <li :class="{active:index==nowIndex}" v-for="(img,index) in smImg" @mouseover="tabShow(index)"><img :src="img.src" :alt="img.alt"/></li>
+      <li :class="{active:index==nowIndex}" v-for="(img,index) in smImg" @mouseover="tabShow(index)"><img v-lazy="img.src" :alt="img.alt"/></li>
     </ul>
     <div class="product_show"  id="bigbox">
       <div class="img"  @mousemove.stop="showDetail" id="img" >

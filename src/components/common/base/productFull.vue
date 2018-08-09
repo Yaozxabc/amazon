@@ -5,7 +5,7 @@
     <ul>
       <li v-for="baner in hotBanerlist">
         <router-link :to="{path:'/sales'}">
-        <img :src="baner.src" :alt="baner.value"/>
+        <img v-lazy="baner.src" :alt="baner.value"/>
         </router-link>
       </li>
     </ul>
@@ -29,7 +29,7 @@
     <ul>
       <li v-for="product in nowList" >
         <router-link :to="{path:'/sales'}">
-          <img :src="product.src" alt=""/>
+          <img v-lazy="product.src" :alt="product.id"/>
         </router-link>
         <h3 class="more">更多选项</h3>
         <div class="keyWord">{{product.discurstion}}</div>
